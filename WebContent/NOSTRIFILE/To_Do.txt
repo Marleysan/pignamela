@@ -1,0 +1,58 @@
+//Aggiungere password al database
+//Cambiare id da auto increment in token where needed
+
+//Profile (modify)
+//Profile (visualizzazione)
+//Cart
+//Article view (collegare anche product_details)
+//Search dentro i browse 
+//Filter del search nel browse
+//Register
+//TUTTO Admin
+
+//-------------------------------------------------
+
+Database:
+
+Tabella User ->
+    user_id
+    firstname
+    lastname
+    email
+    password
+    - secret code ? 1234567890 -> ***_*****_*
+    
+Tabella Admin ->
+    adimn_id
+    name
+    password    
+
+Tabella Product ->
+    product_id
+    name
+    type (man/woman)
+    price
+    type (shirt/pant)
+    descrizione
+    image
+    
+Tabella Product_details ->
+    detail_id
+    product_id
+    - colore?
+    taglia
+    quantity (2 pieces left...)
+                
+Tabella Cart ->
+    user_id
+    cart_id
+    address
+    ordered (true/false)
+
+Tabella Cart_element ->
+    cart_id
+    dietail_id
+    quantity
+    
+    
+    
