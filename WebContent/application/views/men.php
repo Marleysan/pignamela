@@ -21,8 +21,13 @@
     <a href="http://localhost/home">AweSomeFit</a>
     <input type="text" class="form-control" name="search" style="width: 200px; height: 30px;" placeholder="search"/>
     <a href="http://localhost/cart" style="float: right;">cart</a>
-    <a href="http://localhost/profile" style="float: right;">Profile</a>
-    <!-- <?php echo "<a href=\"profile\" id=\"userBar\" style=\"float: right;\">" . $name . "</a>"; ?> -->
+    <?php if(isset($_SESSION["user_id"])) {
+        echo "<a href=\"http://localhost/profile/open_profile\" style=\"float: right;\">Profile</a>";
+    }
+      else {
+        echo "<a href=\"http://localhost/login\" style=\"float: right;\">Login</a>";
+      }
+    ?>
   </div>
     
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
@@ -39,17 +44,6 @@
                 <option>Pants</option>
                 <option>Shirts</option>
                 <option>Sunglasses</option>
-            </select>
-        </div>
-        
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-            <select class="form-control" name="sport" style="width: 100%; height: 30px;">
-                <option selected>-- Size --</option>
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
             </select>
         </div>
         
@@ -110,7 +104,7 @@
     </a>
     <?php endforeach; ?>
     
-    
+    </div>
     <!-- Di questi ne vengono creati dinamicamente uno per ogni articolo nel DB
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="margin: 10px;">
         <img src="http://localhost/assets/img/sweatpants.png" style="width: 100%;" alt="knit"><br>

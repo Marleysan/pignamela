@@ -63,9 +63,9 @@
         </div>
 
         <div class="row" style="padding: 10px">
-            <form action="register.php">
+            <a href="http://localhost/register">
                 <button type="submit" class="btn btn-primary" style="width:275px">Register</button>
-            </form>
+            </a>
         </div>
     </div>
 </div>

@@ -21,8 +21,13 @@
     <a href="http://localhost/home">AweSomeFit</a>
     <input type="text" class="form-control" name="search" style="width: 200px; height: 30px;" placeholder="search"/>
     <a href="http://localhost/cart" style="float: right;">cart</a>
-    <a href="http://localhost/profile" style="float: right;">Profile</a>
-    <!-- <?php echo "<a href=\"profile\" id=\"userBar\" style=\"float: right;\">" . $name . "</a>"; ?> -->
+<?php if(isset($_SESSION["user_id"])) {
+        echo "<a href=\"http://localhost/profile\" style=\"float: right;\">Profile</a>";
+    }
+      else {
+        echo "<a href=\"http://localhost/login\" style=\"float: right;\">Login</a>";
+      }
+    ?>    <!-- <?php echo "<a href=\"profile\" id=\"userBar\" style=\"float: right;\">" . $name . "</a>"; ?> -->
   </div>
   
   

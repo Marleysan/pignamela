@@ -16,6 +16,19 @@ class Costumers_model extends CI_Model {
                 return false;
             }
             
-        }    
+        }   
+    
+        public function create_new($form_data){
+            $data = array(
+            'costumer_firstname' => $form_data['firstname'],
+            'costumer_lastname' => $form_data['lastname'],
+            'costumer_email' => $form_data['email'],
+            'costumer_password' => $form_data['password']
+            );
+
+            $this->db->insert('costumer', $data); 
+            // Return the id of inserted row
+            return $idOfInsertedData = $this->db->insert_id();
+        }
     
 }

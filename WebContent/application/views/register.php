@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<?php 
-session_start();
-?>
+
 
 <html>
 <head>
@@ -29,7 +27,7 @@ session_start();
     <div class="panel panel-default" style="width: 400px; margin: 0 auto; margin-top: 10%;">
       <div class="panel-body">
 
-        <form method="POST">
+        <form action="http://localhost/register/create_user" method="POST">
 
             <h2 style="text-align: center;">Welcome to AweSomeFit
                 <small>Just one step more</small>
@@ -74,14 +72,14 @@ session_start();
             
             
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <button type="submit" class="btn btn-primary" style="width: 150px;">Register</button>
+               <button type="submit" class="btn btn-primary" style="width: 150px;">Register</button>
             </div>
         </form>
         
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <form action="login.php">
+            <a href="http://localhost/login">
              <button type="submit" class="btn btn-primary" style="width: 150px;">Back to Login</button>
-         </form>
+         </a>
      </div>
  </div>
 </div>

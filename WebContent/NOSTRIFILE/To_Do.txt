@@ -1,6 +1,7 @@
 //Aggiungere password al database
 //Cambiare id da auto increment in token where needed
 
+//hashare le password
 //Profile (modify)
 //Profile (visualizzazione)
 //Cart

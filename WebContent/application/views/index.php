@@ -22,7 +22,7 @@
     <input type="text" class="form-control" name="search" style="width: 200px; height: 30px;" placeholder="search"/>
     <a href="http://localhost/cart" style="float: right;">cart</a>
     <?php if(isset($_SESSION["user_id"])) {
-        echo "<a href=\"http://localhost/profile\" style=\"float: right;\">Profile</a>";
+        echo "<a href=\"http://localhost/profile/open_profile\" style=\"float: right;\">Profile</a>";
     }
       else {
         echo "<a href=\"http://localhost/login\" style=\"float: right;\">Login</a>";

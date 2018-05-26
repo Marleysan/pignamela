@@ -8,12 +8,12 @@ class Profile extends CI_Controller {
         $this->load->helper('url_helper');
         $this->load->helper('url');
         $this->load->library('session');
+        $this->load->model('profile_model');
     }
     
-	public function index()
-	{  
+	public function index(){
 		$this->load->view('profile');
-	}
+	}  
     
     public function logout() {
         unset(
@@ -21,6 +21,13 @@ class Profile extends CI_Controller {
             $_SESSION['user_id']
         );
         $this->load->view('index');
+    }
+    
+    public function open_profile(){
+        
+            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $this->load->view('profile', $data);
+        
     }
     
 }

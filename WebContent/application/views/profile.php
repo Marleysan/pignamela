@@ -8,7 +8,7 @@
 	<title>Profile</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<link rel="stylesheet" href="assets/css/global.css">
+	<link rel="stylesheet" href="http://localhost/assets/css/global.css">
 </head>
 <body>
 
@@ -18,12 +18,19 @@
     <a href="http://localhost/home">AweSomeFit</a>
     <input type="text" class="form-control" name="search" style="width: 200px; height: 30px;" placeholder="search"/>
     <a href="http://localhost/cart" style="float: right;">cart</a>
-    <a href="http://localhost/profile" style="float: right;">Profile</a>
-    <!-- <?php echo "<a href=\"profile\" id=\"userBar\" style=\"float: right;\">" . $name . "</a>"; ?> -->
+<?php if(isset($_SESSION["user_id"])) {
+        echo "<a href=\"http://localhost/profile/open_profile\" style=\"float: right;\">Profile</a>";
+    }
+      else {
+        echo "<a href=\"http://localhost/login\" style=\"float: right;\">Login</a>";
+      }
+    
+    ?>    <!-- <?php echo "<a href=\"profile\" id=\"userBar\" style=\"float: right;\">" . $name . "</a>"; ?> -->
   </div>
 
   <div class="row" style="width: 23%; margin: 0 auto; margin-top: 20px;">
-    <h1 style="text-align: center;">Franz Joseph</h1>
+    <h1 style="text-align: center;"><?php echo $profile_data['costumer_firstname'];
+        echo "  " . $profile_data['costumer_lastname'];?></h1>
     <div class="row" > <!--style="width:85%; margin:0 auto;">-->
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <form action="http://localhost/profile/logout">
