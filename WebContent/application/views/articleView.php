@@ -49,16 +49,16 @@
               <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                <select class="form-control" name="size" style="width: 40%; height: 30px;">
                 <option selected>-- Size --</option>
-                <option>XS</option>
-                <option>S</option>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
+                <?php 
+                foreach ($details as $detail_item):
+                echo "<option>" . $detail_item['detail_size'] . "</option>";
+                endforeach;?>
+                
             </select>
             </div>
             
             <div>
-            <label style="margin-left: 2px;">Quantity: X</label>
+            <label style="margin-left: 2px;">Quantity: qui bisogna mettere un check php</label>
         </div>
       
        <div style="width: 100px;">
@@ -73,8 +73,8 @@
             
         </div>
     <?php endforeach; ?>
-    
    
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

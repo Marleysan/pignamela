@@ -25,7 +25,11 @@ class Products_model extends CI_Model {
         } 
     
     
-     
+        public function get_details($id){
+            $query = $this -> db -> get_where('product_detail', array('detail_product_id' => $id));
+            return $query -> result_array();
+        }
+    
     
     
 }

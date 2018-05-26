@@ -27,6 +27,7 @@ class Browse extends CI_Controller {
             $this -> load -> view('articleView');
         } else {
             $data['products'] = $this -> products_model -> get_product($id);
+            $data['details'] = $this -> products_model -> get_details($id);
             $this -> load -> view('articleView', $data);
         }
         
