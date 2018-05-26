@@ -18,12 +18,17 @@ class Register extends CI_Controller {
     public function create_user(){
         $form_data = $this->input->post();
         $result = $this->costumers_model->create_new($form_data);
-        if ($result == NULL) {
-            //TODO inviare messaggio esplicativo
-            $this->load->view('register');
+        if ($result=="existing") {
+            $form_data['db_error'] = "Email already used";
+            $this->load->view('register', $form_data);
         } else {
-            //TODO settare session
-            $this->load->view('login');
+            if ($result == NULL) {
+                $form_data['db_error'] = "Problems with the database";
+                $this->load->view('register', $form_data);
+            } else {
+                //TODO settare session
+                $this->load->view('login');
+            }
         }
     }
     

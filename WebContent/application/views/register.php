@@ -14,14 +14,11 @@
 
 <body>
     <?php
-    if (!empty($_POST["firstname"]) && !empty($_POST["lastname"]) && !empty($_POST["email"]) && !empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["cpassword"])) {
-        if ($_POST["password"]==$_POST["cpassword"]) {
-            createUser($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["username"], $_POST["password"]);
+        if (!empty($db_error)) {
+            echo '<script language="javascript">';
+            echo 'alert('.$db_error.')';
+            echo '</script>';
         }
-        else {
-            echo "The two password should be the same";
-        }
-    }
     ?>
 
     <div class="panel panel-default" style="width: 400px; margin: 0 auto; margin-top: 10%;">
@@ -36,7 +33,7 @@
             <div class="row">
                 <!-- First Name -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-                    <input class="form-control" type="text" name="firstname" maxlength="20" placeholder="First name" style="width: 370px;" required/>
+                    <input class="form-control" type="text" name="firstname" maxlength="20" placeholder="First name" style="width: 370px;" <?php echo (isset($firstname)) ? "value = \"".$firstname."\"":'';?> required/>
                 </div>
             </div>
             
@@ -44,7 +41,7 @@
 
                 <!-- Last Name -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-                    <input class="form-control" type="text" name="lastname" maxlength="20" placeholder="Last name" style="width: 370px;" required/>
+                    <input class="form-control" type="text" name="lastname" maxlength="20" placeholder="Last name" style="width: 370px;" <?php echo (isset($lastname)) ? "value = \"".$lastname."\"":'';?> required/>
                 </div>
             </div>
             
@@ -52,21 +49,21 @@
 
                 <!-- Email -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-                    <input class="form-control" type="email" name="email" maxlength="45" placeholder="E-mail" style="width: 370px;" required/>
+                    <input class="form-control" type="email" name="email" maxlength="45" placeholder="E-mail" style="width: 370px;" <?php echo (isset($email)) ? "value = \"".$email."\"":'';?> required/>
                 </div>
             </div>
             
             <div class="row">
                 <!-- Password -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-                    <input class="form-control" type="password" name="password" minlength="8" maxlength="20" placeholder="Password" style="width: 370px;" required/>
+                    <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="20" placeholder="Password" style="width: 370px;" required/>
                 </div>
             </div>
             
             <div class="row">
                 <!-- Confirm Password -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-                    <input class="form-control" type="password" name="cpassword" minlength="8" maxlength="20" placeholder="Confirm password" style="width: 370px;" required/>
+                    <input class="form-control" type="password" name="cpassword" id="cpassword" minlength="8" maxlength="20" placeholder="Confirm password" style="width: 370px;" required/>
                 </div>
             </div>
             
@@ -86,6 +83,23 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    
+    var password = document.getElementById("password"),
+        confirm_password = document.getElementById("cpassword");
+
+    function validatePassword(){
+      if(password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+      } else {
+        confirm_password.setCustomValidity('');
+      }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+</script>
 </body>
 
 </html>
