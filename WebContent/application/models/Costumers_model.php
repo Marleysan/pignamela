@@ -38,8 +38,8 @@ class Costumers_model extends CI_Model {
                 $this->db->insert('costumer', $data); 
                 return $idOfInsertedData = $this->db->insert_id();
             }
-            
-            
         }
+    
+        
     
 }

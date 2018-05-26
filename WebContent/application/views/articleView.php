@@ -43,7 +43,7 @@
             <h1><?php echo $product_item['product_name']; ?>
             <br><small><?php echo '€ ' . $product_item['product_price']; ?></small></h1>
             </div>
-            
+            <form action="http://localhost/cart" method="POST">
            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="float: right; text-align: center;">
             
               <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
@@ -67,6 +67,8 @@
     
            </div>
             </div>
+            </form>
+            
         
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="float: right; margin-right:80px;"><h3>Description</h3><label style="margin-top: 0px; color: gray;"><?php echo $product_item['product_description']; ?></label>
             </div>
