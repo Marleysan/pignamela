@@ -35,4 +35,15 @@ class Carts_model extends CI_Model {
         public function add_cart_element(){
             
         }
+    
+    public function get_cart(){
+        $query = $this -> db -> get_where('cart', "cart_costumer_id = '" . $_SESSION['user_id'] . "' AND cart_ordered = '0'");
+        return $query  -> row_array();
+    }
+    
+    public function get_cart_elements(){
+        $data = $this -> get_cart();
+        $query = $this -> db -> get_where('cart_element', "element_cart_id = " . $data['cart_id']);
+        return $query -> result_array();
+    }
 }

@@ -41,7 +41,10 @@ class Cart extends CI_Controller {
                 
                 $result = $this -> carts_model -> create_cart();
                 echo "id carrello: " . $result;
-                $this->load->view('cart');
+                
+                //carico i dati per cart
+                $data = $this -> carts_model -> get_cart_elements();
+                $this->load->view('cart', $data);
             }
         }else {
             //se l'utente deve ancora fare il login
