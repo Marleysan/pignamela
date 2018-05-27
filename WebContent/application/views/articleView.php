@@ -43,7 +43,7 @@
             <h1><?php echo $product_item['product_name']; ?>
             <br><small><?php echo '€ ' . $product_item['product_price']; ?></small></h1>
             </div>
-            <form action="http://localhost/cart" method="POST">
+            <form action="http://localhost/cart/add_to_cart/<?php echo $product_item['product_id']; ?>" method="POST">
            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="float: right; text-align: center;">
             
               <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">

@@ -13,9 +13,9 @@
 
 <body>
     <?php
-        if (!empty($db_error)) {
+        if (!empty($error)) {
             echo '<script language="javascript">';
-            echo 'alert("'.$db_error.'")';
+            echo 'alert("'.$error.'")';
             echo '</script>';
         }
     ?>
