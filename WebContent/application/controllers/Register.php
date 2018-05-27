@@ -19,11 +19,11 @@ class Register extends CI_Controller {
         $form_data = $this->input->post();
         $result = $this->costumers_model->create_new($form_data);
         if ($result=="existing") {
-            $form_data['db_error'] = "Email already used";
+            $form_data['error'] = "Email already used";
             $this->load->view('register', $form_data);
         } else {
             if ($result == NULL) {
-                $form_data['db_error'] = "Problems with the database";
+                $form_data['error'] = "Problems with the database";
                 $this->load->view('register', $form_data);
             } else {
                 //TODO settare session

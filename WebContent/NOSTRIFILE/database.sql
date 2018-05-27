@@ -1,9 +1,13 @@
+DROP DATABASE IF EXISTS awesomefitdb;
+CREATE DATABASE awesomefitdb;
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 27, 2018 alle 10:02
+-- Creato il: Mag 27, 2018 alle 11:28
 -- Versione del server: 10.1.31-MariaDB
 -- Versione PHP: 7.2.4
 
@@ -38,6 +42,13 @@ CREATE TABLE `address` (
   `address_note` varchar(160) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dump dei dati per la tabella `address`
+--
+
+INSERT INTO `address` (`address_id`, `address_state`, `address_city`, `address_zip`, `address_street`, `address_civic_number`, `address_note`) VALUES
+(2, 'Italy', 'Bolzano', 39100, 'Via Torino', 14, 'ciaone ghira');
+
 -- --------------------------------------------------------
 
 --
@@ -58,11 +69,19 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL,
-  `cart_address_id` int(11) NOT NULL,
+  `cart_address_id` int(11) DEFAULT NULL,
   `cart_costumer_id` int(11) NOT NULL,
   `cart_ordered` tinyint(1) DEFAULT '0',
-  `cart_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `cart_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `cart`
+--
+
+INSERT INTO `cart` (`cart_id`, `cart_address_id`, `cart_costumer_id`, `cart_ordered`, `cart_date`) VALUES
+(1, 2, 2, 0, '2018-05-27 08:45:25'),
+(8, NULL, 1, 0, '2018-05-27 09:27:12');
 
 -- --------------------------------------------------------
 
@@ -87,7 +106,7 @@ CREATE TABLE `costumer` (
   `costumer_firstname` varchar(25) NOT NULL,
   `costumer_lastname` varchar(20) NOT NULL,
   `costumer_email` varchar(40) NOT NULL,
-  `costumer_password` varchar(32) NOT NULL
+  `costumer_password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -206,7 +225,7 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT per la tabella `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT per la tabella `admin`
@@ -218,7 +237,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT per la tabella `costumer`
