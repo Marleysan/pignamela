@@ -7,11 +7,16 @@ class Costumers_model extends CI_Model {
             $this->load->helper('url');
         }
     
-            //TODO hash password
         public function get_costumer($email, $password){
-            $query = $this->db->get_where('costumer', "(costumer_email = '".$email."' AND costumer_password = '".$password."')");
+            $query = $this->db->get_where('costumer', array('costumer_email' => $email));
             if ($query) {
-                return $query->row_array();    
+                $data = $query->row_array();
+                if (password_verify($password, $data["costumer_password"])) {
+                    return $data;
+                }
+                else {
+                    return false;
+                }
             } else {
                 return false;
             }
@@ -39,7 +44,5 @@ class Costumers_model extends CI_Model {
                 return $idOfInsertedData = $this->db->insert_id();
             }
         }
-    
-        
     
 }

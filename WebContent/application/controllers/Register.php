@@ -17,6 +17,7 @@ class Register extends CI_Controller {
     
     public function create_user(){
         $form_data = $this->input->post();
+        $form_data['password'] = password_hash($form_data['password'], PASSWORD_BCRYPT);
         $result = $this->costumers_model->create_new($form_data);
         if ($result=="existing") {
             $form_data['db_error'] = "Email already used";

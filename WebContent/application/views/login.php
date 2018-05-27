@@ -9,7 +9,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="http://localhost/assets/css/global.css">
 </head>
 
 <body>

@@ -8,7 +8,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="http://localhost/assets/css/global.css">
 </head>
 
 <body>
@@ -55,14 +55,14 @@
             <div class="row">
                 <!-- Password -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-                    <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="20" placeholder="Password" style="width: 370px;" required/>
+                    <input class="form-control" type="password" name="password" id="password" maxlength="20" placeholder="Password" style="width: 370px;" value="" required/>
                 </div>
             </div>
             
             <div class="row">
                 <!-- Confirm Password -->
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-                    <input class="form-control" type="password" name="cpassword" id="cpassword" minlength="8" maxlength="20" placeholder="Confirm password" style="width: 370px;" required/>
+                    <input class="form-control" type="password" name="cpassword" id="cpassword" maxlength="20" placeholder="Confirm password" style="width: 370px;" value="" required/>
                 </div>
             </div>
             
@@ -84,18 +84,30 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     
+    var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    
     var password = document.getElementById("password"),
         confirm_password = document.getElementById("cpassword");
 
     function validatePassword(){
+        console.log("partito validate password");
+
       if(password.value != confirm_password.value) {
-        confirm_password.setCustomValidity("Passwords Don't Match");
+          password.setCustomValidity('');
+          confirm_password.setCustomValidity("Passwords Don't Match");
+      } else if (!(regex.test(password.value))) {
+          console.log(password.value);
+          password.setCustomValidity("Password must contain at least eight characters, one uppercase letter, one lowercase letter and one number");
+          confirm_password.setCustomValidity('');
       } else {
-        confirm_password.setCustomValidity('');
+          password.setCustomValidity('');
+          confirm_password.setCustomValidity('');
       }
     }
 
     password.onchange = validatePassword;
+    confirm_password.onchange = validatePassword;
+    password.onkeyup = validatePassword;
     confirm_password.onkeyup = validatePassword;
 
 </script>
