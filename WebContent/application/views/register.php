@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
 <head>
     <meta charset="UTF-8">
@@ -16,7 +15,7 @@
     <?php
         if (!empty($db_error)) {
             echo '<script language="javascript">';
-            echo 'alert('.$db_error.')';
+            echo 'alert("'.$db_error.'")';
             echo '</script>';
         }
     ?>
