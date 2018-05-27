@@ -27,7 +27,11 @@ class Profile extends CI_Controller {
         
             $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
             $this->load->view('profile', $data);
-        
+    }
+    
+    public function modify_password () {
+        $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+        $this->load->view('modifyPassword', $data);
     }
     
 }
