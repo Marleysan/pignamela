@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php 
-//session_start();
-?>
 
 <html>
 
@@ -18,9 +15,11 @@
 <body>
 
     <?php
-    if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-        login($_POST["username"], $_POST["password"]);
-    }
+        if (!empty($db_error)) {
+            echo '<script language="javascript">';
+            echo 'alert("'.$db_error.'")';
+            echo '</script>';
+        }
     ?>
 
     <div class="panel panel-default" style="width: 300px; margin: 10% auto;">
@@ -37,7 +36,7 @@
             <!-- Username -->
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding: 10px">
-                    <input class="form-control" type="text" name="email" placeholder="E-mail" style="width: 275px" required/>
+                    <input class="form-control" type="text" name="email" placeholder="E-mail" style="width: 275px" <?php echo (isset($email)) ? "value = \"".$email."\"":'';?> required/>
                 </div>
             </div>
 

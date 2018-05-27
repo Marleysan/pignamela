@@ -20,15 +20,13 @@ class Login extends CI_Controller {
         $form_data = $this->input->post();
         $data = $this->costumers_model->get_costumer($form_data["email"], $form_data["password"]);
         if ($data == false) {
-            //TODO inviare messaggio esplicativo
-            $this->load->view('login');
+            $form_data['db_error'] = "Wrong email or password";
+            $this->load->view('login', $form_data);
         } else {
             //TODO settare session
             $this->session->user_id = $data["costumer_id"];
             $this->load->view('index');
         }
     }
-    
-    
-    
+
 }
