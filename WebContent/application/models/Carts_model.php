@@ -12,7 +12,7 @@ class Carts_model extends CI_Model {
     //controlla se esiste un cart collegato di un utente e che il ordered value sia "false" -> se lo trova torna true, altrimenti false
         public function check_carts(){
             $myBool = false;
-            $query = $this -> db -> get_where('cart',"cart_costumer_id = '" . $_SESSION['user_id'] . "' AND cart_ordered = '0'");
+            $query = $this -> db -> get_where('cart',"cart_customer_id = '" . $_SESSION['user_id'] . "' AND cart_ordered = '0'");
             if ($query->num_rows() != 0){
                 $myBool = true;
             }
@@ -23,7 +23,7 @@ class Carts_model extends CI_Model {
     //crea un cart nuovo per l'utente 
         public function create_cart(){
             $data = array(
-                    'cart_costumer_id' => $_SESSION['user_id'],
+                    'cart_customer_id' => $_SESSION['user_id'],
                 );
             
             $this->db->insert('cart', $data);
@@ -37,7 +37,7 @@ class Carts_model extends CI_Model {
         }
     
     public function get_cart(){
-        $query = $this -> db -> get_where('cart', "cart_costumer_id = '" . $_SESSION['user_id'] . "' AND cart_ordered = '0'");
+        $query = $this -> db -> get_where('cart', "cart_customer_id = '" . $_SESSION['user_id'] . "' AND cart_ordered = '0'");
         return $query  -> row_array();
     }
     

@@ -1,13 +1,29 @@
 @charset "UTF-8";
 
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-ASF {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin:0 auto;
+}
+
+.navbar-toggle {
+    z-index:3;
+}
+
 /* Add a black background color to the top navigation */
-.topnav {
+.navbar {
     background-color: #2F2F2F;
     overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.navbar a {
     float: left;
     display: block;
     color: #FFFFFF;
@@ -15,23 +31,6 @@
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-/* Add an active class to highlight the current page 
-.active {
-    background-color: #4CAF50;
-    color: white;
-}*/
-
-/* Hide the link that should open and close the topnav on small screens */
-.topnav .icon {
-    display: none;
 }
 
 body {
@@ -42,14 +41,9 @@ body {
     background-color: #FFFFFF;
 }
 
-/*@media(max-width: 992px){
-    #mybox{
-        width: 100% !important;
-    }
-}*/
-
 button {
     
     background-size: cover;
     background-color: #eee;
 }
+

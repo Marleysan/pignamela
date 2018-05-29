@@ -15,20 +15,34 @@
 
 <body>
   
- <div class="topnav" id="myTopnav">
-    <a href="http://localhost/browse/openmen">Men</a>
-    <a href="http://localhost/browse/openwomen">Women</a>
-    <a href="http://localhost/home">AweSomeFit</a>
-    <a href="http://localhost/cart" style="float: right;"><i class="glyphicon glyphicon-shopping-cart"></i></a>
-    <?php if(isset($_SESSION["user_id"])) {
-        echo "<a href=\"http://localhost/profile/open_profile\" style=\"float: right;\">Profile</a>";
+ <nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>-->    
+    <a class="navbar-ASF" href="http://localhost/home">AweSomeFit</a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-left">
+        <li><a href="http://localhost/browse/openmen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Men</a></li>
+        <li><a href="http://localhost/browse/openwomen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Women</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+     
+     <?php if(isset($_SESSION["user_id"])) {
+        echo "<li><a href=\"http://localhost/profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">Profile</a></li>";
     }
       else {
-        echo "<a href=\"http://localhost/login\" style=\"float: right;\">Login</a>";
+        echo "<li><a href=\"http://localhost/login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">Login</a></li>";
       }
     ?>
-    ?>    <!-- <?php echo "<a href=\"profile\" id=\"userBar\" style=\"float: right;\">" . $name . "</a>"; ?> -->
+     
+      <li><a href="http://localhost/cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+    </ul>
   </div>
+</nav>
   
   <h1 style="text-align: center; color: #2F2F2F; margin: 50px;">shopping cart</h1>
   

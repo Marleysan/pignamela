@@ -11,6 +11,7 @@ Security:
 
 Features:
 
+//Add back to homepage in login.php
 //Profile (modify)
 //Profile (visualizzazione)
 //Cart

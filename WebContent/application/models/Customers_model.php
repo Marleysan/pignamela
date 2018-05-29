@@ -1,5 +1,5 @@
 <?php
-class Costumers_model extends CI_Model {
+class Customers_model extends CI_Model {
 
         public function __construct()
         {
@@ -7,11 +7,11 @@ class Costumers_model extends CI_Model {
             $this->load->helper('url');
         }
     
-        public function get_costumer($email, $password){
-            $query = $this->db->get_where('costumer', array('costumer_email' => $email));
+        public function get_customer($email, $password){
+            $query = $this->db->get_where('customer', array('customer_email' => $email));
             if ($query) {
                 $data = $query->row_array();
-                if (password_verify($password, $data["costumer_password"])) {
+                if (password_verify($password, $data["customer_password"])) {
                     return $data;
                 }
                 else {
@@ -28,29 +28,29 @@ class Costumers_model extends CI_Model {
         //altro numero -> id user
         public function create_new($form_data){
             $data = array(
-                'costumer_firstname' => $form_data['firstname'],
-                'costumer_lastname' => $form_data['lastname'],
-                'costumer_email' => $form_data['email'],
-                'costumer_password' => $form_data['password']
+                'customer_firstname' => $form_data['firstname'],
+                'customer_lastname' => $form_data['lastname'],
+                'customer_email' => $form_data['email'],
+                'customer_password' => $form_data['password']
             );
             
-            $query = $this->db->get_where('costumer', array('costumer_email' => $data['costumer_email']));
+            $query = $this->db->get_where('customer', array('customer_email' => $data['customer_email']));
             if (count($query->result_array())>0) {
                 return "existing";
                 
             }
             else {
-                $this->db->insert('costumer', $data); 
+                $this->db->insert('customer', $data); 
                 return $idOfInsertedData = $this->db->insert_id();
             }
         }
     
         public function change_password($form_data){
         
-            $query = $this->db->get_where('costumer', array('costumer_firstname' => $form_data['firstname']), array('costumer_lastname' => $data['lastname']));
+            $query = $this->db->get_where('customer', array('customer_firstname' => $form_data['firstname']), array('customer_lastname' => $data['lastname']));
             if (count($query->result_array())>0) {
-                $this->db->set('costumer_password', $form_data['password']);
-                $this->db->insert('costumer');
+                $this->db->set('customer_password', $form_data['password']);
+                $this->db->insert('customer');
             }
         }
     

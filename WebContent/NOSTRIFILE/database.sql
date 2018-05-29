@@ -7,7 +7,7 @@ CREATE DATABASE awesomefitdb;
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 27, 2018 alle 11:28
+-- Creato il: Mag 29, 2018 alle 20:59
 -- Versione del server: 10.1.31-MariaDB
 -- Versione PHP: 7.2.4
 
@@ -70,7 +70,7 @@ CREATE TABLE `admin` (
 CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL,
   `cart_address_id` int(11) DEFAULT NULL,
-  `cart_costumer_id` int(11) NOT NULL,
+  `cart_customer_id` int(11) NOT NULL,
   `cart_ordered` tinyint(1) DEFAULT '0',
   `cart_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -79,9 +79,9 @@ CREATE TABLE `cart` (
 -- Dump dei dati per la tabella `cart`
 --
 
-INSERT INTO `cart` (`cart_id`, `cart_address_id`, `cart_costumer_id`, `cart_ordered`, `cart_date`) VALUES
+INSERT INTO `cart` (`cart_id`, `cart_address_id`, `cart_customer_id`, `cart_ordered`, `cart_date`) VALUES
 (1, 2, 2, 0, '2018-05-27 08:45:25'),
-(8, NULL, 1, 0, '2018-05-27 09:27:12');
+(11, NULL, 1, 0, '2018-05-27 09:55:52');
 
 -- --------------------------------------------------------
 
@@ -98,24 +98,25 @@ CREATE TABLE `cart_element` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `costumer`
+-- Struttura della tabella `customer`
 --
 
-CREATE TABLE `costumer` (
-  `costumer_id` int(11) NOT NULL,
-  `costumer_firstname` varchar(25) NOT NULL,
-  `costumer_lastname` varchar(20) NOT NULL,
-  `costumer_email` varchar(40) NOT NULL,
-  `costumer_password` varchar(100) NOT NULL
+CREATE TABLE `customer` (
+  `customer_id` int(11) NOT NULL,
+  `customer_firstname` varchar(25) NOT NULL,
+  `customer_lastname` varchar(20) NOT NULL,
+  `customer_email` varchar(40) NOT NULL,
+  `customer_password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `costumer`
+-- Dump dei dati per la tabella `customer`
 --
 
-INSERT INTO `costumer` (`costumer_id`, `costumer_firstname`, `costumer_lastname`, `costumer_email`, `costumer_password`) VALUES
-(1, 'User', 'Lastuser', 'user@user.it', '1234567890'),
-(2, 'Alessandro', 'Mattivi', 'marleysan.thecan@gmail.com', '1234567890');
+INSERT INTO `customer` (`customer_id`, `customer_firstname`, `customer_lastname`, `customer_email`, `customer_password`) VALUES
+(1, 'User', 'Lastuser', 'user@user.it', '$2y$10$Xq27J1OwMa1jYKPkF3ktAeWejEhfphKvM4RSmSXr0XvBJgBb4ll7G'),
+(2, 'Alessandro', 'Mattivi', 'marleysan.thecan@gmail.com', '$2y$10$Xq27J1OwMa1jYKPkF3ktAeWejEhfphKvM4RSmSXr0XvBJgBb4ll7G'),
+(3, 'silvia', 'silvi', 'silf@fdsa.it', '$2y$10$Xq27J1OwMa1jYKPkF3ktAeWejEhfphKvM4RSmSXr0XvBJgBb4ll7G');
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,7 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`),
-  ADD KEY `cart_costumer_id` (`cart_costumer_id`),
+  ADD KEY `cart_customer_id` (`cart_customer_id`),
   ADD KEY `cart_address_id` (`cart_address_id`);
 
 --
@@ -198,11 +199,11 @@ ALTER TABLE `cart_element`
   ADD KEY `element_detail_id` (`element_detail_id`);
 
 --
--- Indici per le tabelle `costumer`
+-- Indici per le tabelle `customer`
 --
-ALTER TABLE `costumer`
-  ADD PRIMARY KEY (`costumer_id`),
-  ADD UNIQUE KEY `costumer_email` (`costumer_email`);
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customer_id`),
+  ADD UNIQUE KEY `customer_email` (`customer_email`);
 
 --
 -- Indici per le tabelle `product`
@@ -237,13 +238,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT per la tabella `costumer`
+-- AUTO_INCREMENT per la tabella `customer`
 --
-ALTER TABLE `costumer`
-  MODIFY `costumer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `customer`
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `product`
@@ -265,7 +266,7 @@ ALTER TABLE `product_detail`
 -- Limiti per la tabella `cart`
 --
 ALTER TABLE `cart`
-  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`cart_costumer_id`) REFERENCES `costumer` (`costumer_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`cart_customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`cart_address_id`) REFERENCES `address` (`address_id`);
 
 --

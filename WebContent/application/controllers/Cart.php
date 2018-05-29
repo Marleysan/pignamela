@@ -8,13 +8,13 @@ class Cart extends CI_Controller {
         $this->load->helper('url_helper');
         $this->load->helper('url'); 
         $this->load->library('session');
-        $this->load->model('costumers_model');
+        $this->load->model('customers_model');
         $this->load->model('carts_model');
     }
     
 	public function index(){
         $form_data = $this -> input -> post();
-        //$result = $this -> costumers_model -> 
+        //$result = $this -> customers_model -> 
 		$this->load->view('cart');
 	}
     

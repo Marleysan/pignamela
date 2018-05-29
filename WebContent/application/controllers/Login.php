@@ -8,7 +8,7 @@ class Login extends CI_Controller {
         $this->load->helper('url_helper');
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('costumers_model');
+        $this->load->model('customers_model');
     }
     
 	public function index() {  
@@ -18,13 +18,13 @@ class Login extends CI_Controller {
         //TODO check for particular characters inside email and password
     public function do_login() {
         $form_data = $this->input->post();
-        $data = $this->costumers_model->get_costumer($form_data["email"], $form_data["password"]);
+        $data = $this->customers_model->get_customer($form_data["email"], $form_data["password"]);
         if ($data == false) {
             $form_data['error'] = "Wrong email or password";
             $this->load->view('login', $form_data);
         } else {
             //TODO settare session
-            $this->session->user_id = $data["costumer_id"];
+            $this->session->user_id = $data["customer_id"];
             $this->load->view('index');
         }
     }

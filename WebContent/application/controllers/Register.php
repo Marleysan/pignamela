@@ -8,7 +8,7 @@ class Register extends CI_Controller {
         $this->load->helper('url_helper');
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('costumers_model');
+        $this->load->model('customers_model');
     }
     
 	public function index(){
@@ -18,7 +18,7 @@ class Register extends CI_Controller {
     public function create_user(){
         $form_data = $this->input->post();
         $form_data['password'] = password_hash($form_data['password'], PASSWORD_BCRYPT);
-        $result = $this->costumers_model->create_new($form_data);
+        $result = $this->customers_model->create_new($form_data);
         if ($result=="existing") {
             $form_data['error'] = "Email already used";
             $this->load->view('register', $form_data);
