@@ -16,8 +16,7 @@
     <a href="http://localhost/browse/openmen">Men</a>
     <a href="http://localhost/browse/openwomen">Women</a>
     <a href="http://localhost/home">AweSomeFit</a>
-    <input type="text" class="form-control" name="search" style="width: 200px; height: 30px;" placeholder="search"/>
-    <a href="http://localhost/cart" style="float: right;">cart</a>
+    <a href="http://localhost/cart" style="float: right;"><i class="glyphicon glyphicon-shopping-cart"></i></a>
 <?php if(isset($_SESSION["user_id"])) {
         echo "<a href=\"http://localhost/profile/open_profile\" style=\"float: right;\">Profile</a>";
     }

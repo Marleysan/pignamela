@@ -2,7 +2,7 @@
 
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #fff;/*#2F2F2F;*/
+    background-color: #2F2F2F;
     overflow: hidden;
 }
 
@@ -10,7 +10,7 @@
 .topnav a {
     float: left;
     display: block;
-    color: #000;/*#FFFFFF;*/
+    color: #FFFFFF;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;

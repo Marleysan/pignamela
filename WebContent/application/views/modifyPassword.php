@@ -15,8 +15,8 @@
 	<div class="topnav" id="myTopnav">
     <a href="http://localhost/browse/openmen">Men</a>
     <a href="http://localhost/browse/openwomen">Women</a>
-    <a href="http://localhost/home" id="ASFlogo">AweSomeFit</a>
-    <a href="http://localhost/cart" style="float: right;">cart</a>
+    <a href="http://localhost/home" style="margin-left: 25%;">AweSomeFit</a> <!-- display: flex; justify-content: center -->
+    <a href="http://localhost/cart" style="float: right;"><i class="glyphicon glyphicon-shopping-cart"></i></a>
     
 <?php if(isset($_SESSION["user_id"])) {
         echo "<a href=\"http://localhost/profile/open_profile\" style=\"float: right;\">Profile</a>";
