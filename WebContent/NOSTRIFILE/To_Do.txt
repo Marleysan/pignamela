@@ -1,7 +1,15 @@
+Database:
+
 //Aggiungere password al database
 //Cambiare id da auto increment in token where needed
 
-//implementare https
+Security:
+
+//implementare https protocol
+//usare certificates (?)
+
+Features:
+
 //Profile (modify)
 //Profile (visualizzazione)
 //Cart
