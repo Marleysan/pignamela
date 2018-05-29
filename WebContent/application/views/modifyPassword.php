@@ -27,15 +27,16 @@
     ?>
     
   </div>
+    <form action="http://localhost/register/change_password" method="POST">
 
   <div class="row" style="width: 23%; margin: 0 auto; margin-top: 20px;">
+   <label name="firstname" hidden><?php echo $profile_data['costumer_firstname'];?></label>
+   <label name="lastname" hidden><?php echo $profile_data['costumer_lastname'];?></label>
     <h1 style="text-align: center;"><?php echo $profile_data['costumer_firstname'];
         echo "  " . $profile_data['costumer_lastname'];?></h1>
     <div class="row" > <!--style="width:85%; margin:0 auto;">-->
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
-        <form action="http://localhost/profile/changePassword">
           <button type="submit" class="btn btn-primary" style="width: 50%;">Save</button>
-        </form>
       </div>
     </div>
   </div>
@@ -74,7 +75,7 @@
 </form>
 </div>
 </div>
-   
+    </form>
    
     </body>
 </html>

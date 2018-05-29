@@ -7,6 +7,7 @@ Security:
 
 //implementare https protocol
 //usare certificates (?)
+//escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
 
 Features:
 

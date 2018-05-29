@@ -45,4 +45,13 @@ class Costumers_model extends CI_Model {
             }
         }
     
+        public function change_password($form_data){
+        
+            $query = $this->db->get_where('costumer', array('costumer_firstname' => $form_data['firstname']), array('costumer_lastname' => $data['lastname']));
+            if (count($query->result_array())>0) {
+                $this->db->set('costumer_password', $form_data['password']);
+                $this->db->insert('costumer');
+            }
+        }
+    
 }

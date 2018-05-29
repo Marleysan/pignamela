@@ -16,7 +16,7 @@
 <body>
     
     <div class="topnav" id="myTopnav">
-    <a href="http://localhost/browse/openmen">Men</a>
+    <a href="http://localhost/browse/openmen"><u>Men</u></a>
     <a href="http://localhost/browse/openwomen">Women</a>
     <a href="http://localhost/home">AweSomeFit</a>
     <a href="http://localhost/cart" style="float: right;"><i class="glyphicon glyphicon-shopping-cart"></i></a>
