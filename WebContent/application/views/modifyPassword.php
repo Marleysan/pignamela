@@ -15,8 +15,7 @@
 	<div class="topnav" id="myTopnav">
     <a href="http://localhost/browse/openmen">Men</a>
     <a href="http://localhost/browse/openwomen">Women</a>
-    <a href="http://localhost/home">AweSomeFit</a>
-    <input type="text" class="form-control" name="search" style="width: 200px; height: 30px;" placeholder="search"/>
+    <a href="http://localhost/home" id="ASFlogo">AweSomeFit</a>
     <a href="http://localhost/cart" style="float: right;">cart</a>
     
 <?php if(isset($_SESSION["user_id"])) {
@@ -54,20 +53,24 @@
       <form method="POST" action="create.php">
    
    <div class="row">
+         
+         <h3 style="text-align: center;">Change your password:
+             <br><small>Remember that regularly changing your password enhence your profile security,</small><br><small> thus protecting your personal data!!</small></h3>
+          </div>
+   
+   <div class="row" style="margin-top: 15px;">
     <!-- Password -->
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
      <label>Password:</label>
      <input class="form-control" type="password" name="password" minlength="8" maxlength="20" placeholder="Password" style="width: 370px;" required/>
    </div>
- </div>
  
- <div class="row">
   <!-- Confirm Password -->
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
    <label>Confirm Password:</label>
    <input class="form-control" type="password" name="cpassword" minlength="8" maxlength="20" placeholder="Confirm password" style="width: 370px;" required/>
  </div>
-</div>
+ </div>
 </form>
 </div>
 </div>
