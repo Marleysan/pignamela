@@ -33,7 +33,7 @@ class Carts_model extends CI_Model {
     
     //aggiunge un elemento a il cart attivo dell'utente
         public function add_cart_element(){
-            
+            //ciaone ghira
         }
     
     public function get_cart(){
