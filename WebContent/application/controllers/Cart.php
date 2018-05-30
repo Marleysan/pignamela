@@ -42,11 +42,8 @@ class Cart extends CI_Controller {
                 );
                 $this -> carts_model -> add_cart_element($data);
                 
-                //carico i dati per cart
-                $cart_data['cart_elements'] = $this -> carts_model -> get_cart_elements();
-                
                 //apro la cart view
-                $this->load->view('cart', $cart_data);
+                $this->open_cart();
             } else {
                 //se non c'è un cart attivo
                 echo "l'utente NON ha un cart attivo </br>";
@@ -63,11 +60,8 @@ class Cart extends CI_Controller {
                 );
                 $this -> carts_model -> add_cart_element($data);
                 
-                //carico i dati per cart
-                $cart_data['cart_elements'] = $this -> carts_model -> get_cart_elements();
-                
                 //apro la cart view
-                $this->load->view('cart', $cart_data);
+                $this->open_cart();
             }
         }else {
             //se l'utente deve ancora fare il login
@@ -76,5 +70,8 @@ class Cart extends CI_Controller {
         }
     }
     
-    
+    public function open_cart(){
+        
+        $this -> load -> view('cart');
+    }
 }

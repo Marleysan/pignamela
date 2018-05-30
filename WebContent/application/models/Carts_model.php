@@ -8,7 +8,7 @@ class Carts_model extends CI_Model {
             $this->load->library('session');
             $this->load->model('carts_model');
         }
-    
+
          
     //controlla se esiste un cart collegato di un utente e che il ordered value sia "false" -> se lo trova torna true, altrimenti false
         public function check_carts(){
