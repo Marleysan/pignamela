@@ -8,9 +8,12 @@ Security:
 //implementare https protocol
 //usare certificates (?)
 //escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
+//secret code matt (?)
 
 Features:
 
+//Cambiare il label per modify password ('Modify'->'Change Password')
+//Menubar for small screens
 //Add back to homepage in login.php
 //Profile (modify)
 //Profile (visualizzazione)
@@ -22,7 +25,6 @@ Features:
 //Article view (collegare anche product_details)
 //Search dentro i browse 
 //Filter del search nel browse
-//Register
 //TUTTO Admin
 
 //-------------------------------------------------
