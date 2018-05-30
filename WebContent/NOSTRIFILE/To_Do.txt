@@ -15,6 +15,10 @@ Features:
 //Profile (modify)
 //Profile (visualizzazione)
 //Cart
+//quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
+
+
+
 //Article view (collegare anche product_details)
 //Search dentro i browse 
 //Filter del search nel browse

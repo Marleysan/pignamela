@@ -30,21 +30,44 @@ class Cart extends CI_Controller {
             echo "l'utente è loggato </br>";
             
             $result = $this -> carts_model -> check_carts();
-            if ($result == true){
+            if ($result != 0){
                 //se esiste già un cart attivo
                 echo "l'utente ha già un cart attivo </br>";
                 
+                //aggiungo prodotto al cart
+                $data = array(
+                'detail_product_id' => $product_id,
+                'cart_id' => $result,
+                'detail_size' => $form_data['size']
+                );
+                $this -> carts_model -> add_cart_element($data);
                 
+                //carico i dati per cart
+                $cart_data['cart_elements'] = $this -> carts_model -> get_cart_elements();
+                
+                //apro la cart view
+                $this->load->view('cart', $cart_data);
             } else {
                 //se non c'è un cart attivo
                 echo "l'utente NON ha un cart attivo </br>";
                 
+                //creazione del carrello attivo per questo utente
                 $result = $this -> carts_model -> create_cart();
                 echo "id carrello: " . $result;
                 
+                //aggiungo prodotto al cart
+                $data = array(
+                'detail_product_id' => $product_id,
+                'cart_id' => $result,
+                'detail_size' => $form_data['size']
+                );
+                $this -> carts_model -> add_cart_element($data);
+                
                 //carico i dati per cart
-                $data = $this -> carts_model -> get_cart_elements();
-                $this->load->view('cart', $data);
+                $cart_data['cart_elements'] = $this -> carts_model -> get_cart_elements();
+                
+                //apro la cart view
+                $this->load->view('cart', $cart_data);
             }
         }else {
             //se l'utente deve ancora fare il login
