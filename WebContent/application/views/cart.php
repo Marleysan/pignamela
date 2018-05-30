@@ -47,8 +47,9 @@
   <h1 style="text-align: center; color: #2F2F2F; margin: 50px;">shopping cart</h1>
   
   
-  <?php foreach ($cart_elements as $element): ?>
+  <?php foreach ($elements as $element): ?>
   
+  <!-- qui dentro -->
   <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
     <div class="panel-body" style="height: 110px;">
      

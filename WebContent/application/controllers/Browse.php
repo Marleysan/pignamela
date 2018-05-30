@@ -31,6 +31,6 @@ class Browse extends CI_Controller {
             $data['details'] = $this -> products_model -> get_details($id);
             $this -> load -> view('articleView', $data);
         }
-        
+    
     }
 }

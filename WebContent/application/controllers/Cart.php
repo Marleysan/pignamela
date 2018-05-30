@@ -10,6 +10,7 @@ class Cart extends CI_Controller {
         $this->load->library('session');
         $this->load->model('customers_model');
         $this->load->model('carts_model');
+        $this->load->model('products_model');
     }
     
 	public function index(){
@@ -71,7 +72,8 @@ class Cart extends CI_Controller {
     }
     
     public function open_cart(){
-        
-        $this -> load -> view('cart');
+        $data['elements'] = $this -> carts_model -> get_cart_elements();
+        $data['products'] = $this -> products_model -> get_all_products();
+        $this -> load -> view('cart', $data);
     }
 }
