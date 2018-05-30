@@ -14,11 +14,11 @@
 
 	<nav class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
-    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
-    </button>-->    
+    </button>    
     <a class="navbar-ASF" href="http://localhost/home">AweSomeFit</a>
   </div>
   <div class="navbar-collapse collapse">
@@ -44,14 +44,14 @@
   <div class="row" style="width: 23%; margin: 0 auto; margin-top: 20px;">
     <h1 style="text-align: center;"><?php echo $profile_data['customer_firstname'];
         echo "  " . $profile_data['customer_lastname'];?></h1>
-    <div class="row" > <!--style="width:85%; margin:0 auto;">-->
+    <div class="row" >
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <form action="http://localhost/profile/logout">
           <button type="submit" class="btn btn-primary" style="width: 100%;">Logout</button>
         </form>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <a href="http://localhost/profile/modify_password"><button type="submit" class="btn btn-primary" style="width: 100%;">Modify</button></a>
+        <a href="http://localhost/profile/modify_password"><button type="submit" class="btn btn-primary" style="width: 150px;">Change Password</button></a>
       </div>
     </div>
   </div>

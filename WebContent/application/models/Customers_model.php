@@ -48,6 +48,7 @@ class Customers_model extends CI_Model {
         public function change_password($form_data){
         
             $query = $this->db->get_where('customer', array('customer_firstname' => $form_data['firstname']), array('customer_lastname' => $data['lastname']));
+            echo $query;
             if (count($query->result_array())>0) {
                 $this->db->set('customer_password', $form_data['password']);
                 $this->db->insert('customer');

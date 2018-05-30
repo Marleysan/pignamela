@@ -17,11 +17,11 @@
   
  <nav class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
-    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
-    </button>-->    
+      </button>
     <a class="navbar-ASF" href="http://localhost/home">AweSomeFit</a>
   </div>
   <div class="navbar-collapse collapse">

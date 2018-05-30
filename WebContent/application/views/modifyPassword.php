@@ -14,11 +14,11 @@
 
     <nav class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
-    <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
-    </button>-->    
+    </button>
     <a class="navbar-ASF" href="http://localhost/home">AweSomeFit</a>
   </div>
   <div class="navbar-collapse collapse">
@@ -69,7 +69,7 @@
    <div class="row">
          
          <h3 style="text-align: center;">Change your password:
-             <br><small>Remember that regularly changing your password enhence your profile security,</small><br><small> thus protecting your personal data!!</small></h3>
+             <br><small>Remember that regularly changing your password enhence your profile security,</small><br><small> thus protecting your personal data!</small></h3>
           </div>
    
    <div class="row" style="margin-top: 15px;">
