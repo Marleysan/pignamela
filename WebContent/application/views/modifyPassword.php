@@ -29,10 +29,10 @@
     <ul class="nav navbar-nav navbar-right">
      
      <?php if(isset($_SESSION["user_id"])) {
-        echo "<li><a href=\"http://localhost/profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">Profile</a></li>";
+        echo "<li><a href=\"http://localhost/profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><i class=\"glyphicon glyphicon-user\"></i>  <u>Profile</u></a></li>";
     }
       else {
-        echo "<li><a href=\"http://localhost/login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">Login</a></li>";
+        echo "<li><a href=\"http://localhost/login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">login  <i class=\"glyphicon glyphicon-log-in\"></i></a></li>";
       }
     ?>
      
@@ -41,16 +41,21 @@
   </div>
 </nav>
    
-    <form action="http://localhost/register/change_password" method="POST">
+    <!--<form action="http://localhost/register/change_password" method="POST">-->
 
   <div class="row" style="width: 23%; margin: 0 auto; margin-top: 20px;">
-   <label name="firstname" hidden><?php echo $profile_data['customer_firstname'];?></label>
-   <label name="lastname" hidden><?php echo $profile_data['customer_lastname'];?></label>
+   <!--<label name="firstname" hidden><?php echo $profile_data['customer_firstname'];?></label>
+   <label name="lastname" hidden><?php echo $profile_data['customer_lastname'];?></label>-->
     <h1 style="text-align: center;"><?php echo $profile_data['customer_firstname'];
         echo "  " . $profile_data['customer_lastname'];?></h1>
-    <div class="row" > <!--style="width:85%; margin:0 auto;">-->
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
-          <button type="submit" class="btn btn-primary" style="width: 50%;">Save</button>
+    <div class="row" >
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <form action="http://localhost/profile/open_profile">
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Discard changes</button>
+        </form>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Save</button>
       </div>
     </div>
   </div>
@@ -87,7 +92,7 @@
  </div>
 </div>
 </div>
-    </form>
+    <!--</form>-->
    
     </body>
 </html>
