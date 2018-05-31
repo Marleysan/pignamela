@@ -13,11 +13,13 @@ class Browse extends CI_Controller {
     }
     
 	public function openmen() { 
+        //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
         $data['products'] = $this->products_model->get_products_men();
 		$this->load->view('men', $data);
 	}
     
     public function openwomen() {
+        //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
         $data['products'] = $this->products_model->get_products_women();
 		$this->load->view('women', $data);
 	}
@@ -31,6 +33,26 @@ class Browse extends CI_Controller {
             $data['details'] = $this -> products_model -> get_details($id);
             $this -> load -> view('articleView', $data);
         }
-    
+
     }
+    
+    public function filtermen(){
+        $form_data = $this -> input -> post();
+        
+        //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
+        $data['products'] = $this->products_model->get_products_men();
+        //implementare metodi filter nel database
+        $this -> load -> view('men', $data);
+    }
+    
+    public function filterwomen(){
+        $form_data = $this -> input -> post();
+        
+        //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
+        $data['products'] = $this->products_model->get_products_women();
+        //implementare metodi filter nel database
+        $this -> load -> view('women', $data);
+    }
+    
+    
 }

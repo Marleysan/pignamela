@@ -62,7 +62,7 @@
             
               <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                <select class="form-control" name="size" style="width: 40%; height: 30px;">
-                <option selected>-- Size --</option>
+                <option selected>-- Size --</option> 
                 <?php 
                 foreach ($details as $detail_item):
                 echo "<option>" . $detail_item['detail_size'] . "</option>";

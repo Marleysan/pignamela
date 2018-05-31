@@ -49,11 +49,12 @@
     </div>
 
     <div class="row" style="margin-top: 425px; margin-left: auto; margin-right: auto;">
-        <form method="post" action="men.php">
+        <form action="http://localhost/browse/filterwomen"  method="POST">
           
          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
           
-            <select class="form-control" name="sport" style="width: 100%; height: 30px;">
+            <select class="form-control" name="type" style="width: 100%; height: 30px;">
+               <!-- creare questi dinamicamente -->
                 <option selected>-- Category --</option>
                 <option>Pants</option>
                 <option>Shirts</option>
@@ -61,38 +62,23 @@
             </select>
         </div>
         
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-            <select class="form-control" style="width: 100%; height: 30px;">
-                <option selected>-- Color --</option>
-                <option>Black</option>
-                <option>Blue</option>
-                <option>Gray</option>
-                <option>Green</option>
-                <option>Red</option>
-                <option>Rose</option>
-                <option>White</option>
-                <option>Yellow</option>
-            </select>
-        </div>
+        
         
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-            <select class="form-control" name="sport" style="width: 100%; height: 30px;">
+            <select class="form-control" name="season" style="width: 100%; height: 30px;">
                 <option selected>-- Season --</option>
-                <option>Spring</option>
-                <option>Summer</option>
-                <option>Autumn</option>
-                <option>Winter</option>
+                <option>Spring/Summer</option>
+                <option>Fall/Winter</option>
             </select>
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-            <select class="form-control" name="sport" style="width: 100%; height: 30px;">
+            <select class="form-control" name="price" style="width: 100%; height: 30px;">
                 <option selected>-- Prize --</option>
-                <option><10</option>
-                <option>10 - 20</option>
-                <option>20 - 30</option>
-                <option>30 - 40</option>
-                <option>>40</option>
+                <option>0-50</option>
+                <option>50 - 100</option>
+                <option>100 - 200</option>
+                <option>200+</option>
             </select>
         </div>
         

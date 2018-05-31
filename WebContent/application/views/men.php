@@ -49,23 +49,24 @@
     </div>
 
     <div class="row" style="margin-top: 425px; margin-left: auto; margin-right: auto;">
-        <form method="post" action="men.php">
+        <form action="http://localhost/browse/filtermen"  method="POST">
           
          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
           
-            <select class="form-control" name="sport" style="width: 100%; height: 30px;">
+            <select class="form-control" name="type" style="width: 100%; height: 30px;">
                <!-- creare questi dinamicamente -->
                 <option selected>-- Category --</option>
-                <option>Pants</option>
-                <option>Shirts</option>
-                <option>Sunglasses</option>
+                <?php 
+                foreach ($products as $product):
+                echo "<option>" . $product['product_type'] . "</option>";
+                endforeach;?>
             </select>
         </div>
         
         
         
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-            <select class="form-control" name="sport" style="width: 100%; height: 30px;">
+            <select class="form-control" name="season" style="width: 100%; height: 30px;">
                 <option selected>-- Season --</option>
                 <option>Spring/Summer</option>
                 <option>Fall/Winter</option>
@@ -73,7 +74,7 @@
         </div>
         
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-            <select class="form-control" name="sport" style="width: 100%; height: 30px;">
+            <select class="form-control" name="price" style="width: 100%; height: 30px;">
                 <option selected>-- Prize --</option>
                 <option>0-50</option>
                 <option>50 - 100</option>

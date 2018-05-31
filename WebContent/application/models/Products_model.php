@@ -24,6 +24,7 @@ class Products_model extends CI_Model {
         //$query = $this -> db -> get_where('')
     }
     
+    
         public function get_products_men() {
             /*$query = $this->db->get_where('product', array('product_gender' => 'man')); */
             
