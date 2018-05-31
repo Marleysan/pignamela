@@ -54,5 +54,4 @@ class Browse extends CI_Controller {
         $this -> load -> view('women', $data);
     }
     
-    
 }

@@ -1,31 +1,32 @@
+PRIORITY 1/2/3/4....
+
 Database:
 
-//Aggiungere password al database
-//Cambiare id da auto increment in token where needed
+//1 Aggiungere password al database
+//2 Cambiare id da auto increment in token where needed
 
 Security:
 
-//implementare https protocol
-//usare certificates (?)
-//escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
-//secret code matt (?)
+//1 implementare https protocol
+//2 usare certificates (?)
+//2 escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
+//3 secret code matt (?)
 
 Features:
 
-//Cambiare il label per modify password ('Modify'->'Change Password')
-//Menubar for small screens
-//Add back to homepage in login.php
-//Profile (modify)
-//Profile (visualizzazione)
-//Cart
-//quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
+//1 FARE TUTTO Admin
+//1 Cart
+//1 fare pagina di conferma ordine
+//[bug]quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
+//1 Filter men / woman
+
+//2 mettere i "past cart" nel profile 
+//3 Search dentro i browse 
+//4 Menubar for small screens 
 
 
 
-//Article view (collegare anche product_details)
-//Search dentro i browse 
-//Filter del search nel browse
-//TUTTO Admin
+
 
 //-------------------------------------------------
 
