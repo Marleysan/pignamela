@@ -18,10 +18,10 @@ class ModifyPassword extends CI_Controller {
     
     public function update_password(){
         $form_data = $this->input->post();
-        echo "oldpassword: " . $form_data['oldpassword'] . "</br>";
+        /*echo "oldpassword: " . $form_data['oldpassword'] . "</br>";
         echo "password: " . $form_data['password'] . "</br>";
         echo "cpassword: " . $form_data['cpassword'];
-        
+        */
         $form_data['password'] = password_hash($form_data['password'], PASSWORD_BCRYPT);
         $result = $this->customers_model-> change_password($form_data);
         
@@ -48,7 +48,9 @@ class ModifyPassword extends CI_Controller {
             } else {
                 
                 //chiedere a silvia se si può utilizzare open_profile() di Profile.php
-                
+                echo '<script language="javascript">';
+                echo 'alert("password successfully changed!")';
+                echo '</script>';
                 $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
                 $this->load->view('modifyPassword', $data);
             }

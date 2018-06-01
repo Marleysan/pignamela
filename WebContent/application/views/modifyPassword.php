@@ -95,18 +95,51 @@
     Password -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
      <label>Password:</label>
-     <input class="form-control" type="password" name="password" minlength="8" maxlength="20" placeholder="Password" required/>
+     <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="20" placeholder="Password" required/>
    </div>
  
   <!-- Confirm Password -->
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
    <label>Confirm Password:</label>
-   <input class="form-control" type="password" name="cpassword" minlength="8" maxlength="20" placeholder="Confirm password" required/>
+   <input class="form-control" type="password" name="cpassword" id="cpassword" minlength="8" maxlength="20" placeholder="Confirm password" required/>
  </div>
  </div>
 </div>
 </div>
 </form>
    
+   
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    
+    var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+    
+    var password = document.getElementById("password"),
+        confirm_password = document.getElementById("cpassword");
+
+    function validatePassword(){
+        console.log("partito validate password");
+
+      if(password.value != confirm_password.value) {
+          password.setCustomValidity('');
+          confirm_password.setCustomValidity("Passwords Don't Match");
+      } else if (!(regex.test(password.value))) {
+          console.log(password.value);
+          password.setCustomValidity("Password must contain at least eight characters, one uppercase letter, one lowercase letter and one number");
+          confirm_password.setCustomValidity('');
+      } else {
+          password.setCustomValidity('');
+          confirm_password.setCustomValidity('');
+      }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onchange = validatePassword;
+    password.onkeyup = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+
+</script>
     </body>
 </html>
