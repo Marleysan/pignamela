@@ -55,7 +55,7 @@
       </div>
     </div>
   </div>
-
+ 
   <!-- Gray division bar -->
   <div class="row" style="margin: 0 auto; margin-top: 30px; width: 60%; border:1px solid #D7D7D7;">
   </div>

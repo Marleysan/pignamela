@@ -43,16 +43,34 @@ class Customers_model extends CI_Model {
                 $this->db->insert('customer', $data); 
                 return $idOfInsertedData = $this->db->insert_id();
             }
-        }
+        } 
     
         public function change_password($form_data){
-        
-            $query = $this->db->get_where('customer', array('customer_firstname' => $form_data['firstname']), array('customer_lastname' => $data['lastname']));
-            echo $query;
-            if (count($query->result_array())>0) {
-                $this->db->set('customer_password', $form_data['password']);
-                $this->db->insert('customer');
-            }
+            
+            $query = $this->db->get_where('customer', array('customer_id' => $_SESSION['user_id']));
+            if ($query) {
+                $data = $query->row_array();
+                
+                //controlla che la vecchia password inserita sia giusta
+                if (password_verify($form_data['oldpassword'], $data["customer_password"])){
+                    
+                    //controlla che la nuova password non sia uguale alla vecchia
+                    if (password_verify($form_data['oldpassword'], $form_data["password"])){
+                        //ritornare not_changed -> password vecchia e nuova sono uguali
+                        return "not_changed";
+                    } else {
+                        //cambio la password di $_SESSION['user_id'] con questa-> $form_data["password"]
+                        $this -> db -> set('customer_password', $form_data["password"]);
+                        $this -> db -> where('customer_id', $_SESSION['user_id']);
+                        $this -> db -> update('customer');
+                        //ritornare changed
+                        return "changed";
+                    }                    
+                } else {
+                    //ritornare old password inserita è sbagliata
+                    return "wrong_password";
+                }
+            //ritornare NULL -> errore di connessione del database
         }
-    
+        }
 }

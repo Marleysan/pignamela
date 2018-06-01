@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+ 
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -40,19 +40,25 @@
     </ul>
   </div>
 </nav>
-   
-    <!--<form action="http://localhost/register/change_password" method="POST">-->
+   <?php
+        if (!empty($error)) {
+            echo '<script language="javascript">';
+            echo 'alert("'.$error.'")';
+            echo '</script>';
+        }
+    ?>
+   <form action="http://localhost/modifypassword/update_password" method="POST">
 
   <div class="row" style="width: 23%; margin: 0 auto; margin-top: 20px;">
-   <!--<label name="firstname" hidden><?php echo $profile_data['customer_firstname'];?></label>
-   <label name="lastname" hidden><?php echo $profile_data['customer_lastname'];?></label>-->
+   
     <h1 style="text-align: center;"><?php echo $profile_data['customer_firstname'];
         echo "  " . $profile_data['customer_lastname'];?></h1>
     <div class="row" >
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <form action="http://localhost/profile/open_profile">
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Discard changes</button>
-        </form>
+        <!-- se metti un form software aka dark souls non funziona più un tubo -->
+         <a  href="http://localhost/profile/open_profile">
+          <button class="btn btn-primary" style="width: 100%;">Discard changes non funziono</button>
+        </a>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <button type="submit" class="btn btn-primary" style="width: 100%;">Save</button>
@@ -76,9 +82,17 @@
          <h3 style="text-align: center;">Change your password:
              <br><small>Remember that regularly changing your password enhence your profile security,</small><br><small> thus protecting your personal data!</small></h3>
           </div>
-   
    <div class="row" style="margin-top: 15px;">
     <!-- Password -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
+     <label>OLD Password:</label>
+     <input class="form-control" type="password" name="oldpassword" minlength="8" maxlength="20" placeholder="Password" required/>
+   </div>
+    </div>
+   <div class="row" style="margin-top: 15px;">
+   <!--//controllare che la password sia valida
+   //controllare che password e confirm siano uguali
+    Password -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
      <label>Password:</label>
      <input class="form-control" type="password" name="password" minlength="8" maxlength="20" placeholder="Password" required/>
@@ -92,7 +106,7 @@
  </div>
 </div>
 </div>
-    <!--</form>-->
+</form>
    
     </body>
 </html>

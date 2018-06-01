@@ -17,14 +17,12 @@ class Profile extends CI_Controller {
     
     public function logout() {
         unset(
-            //$_SESSION['user_id'],
             $_SESSION['user_id']
         );
         $this->load->view('index');
     }
     
     public function open_profile(){
-        
             $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
             $this->load->view('profile', $data);
     }

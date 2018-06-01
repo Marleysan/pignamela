@@ -9,6 +9,7 @@ class ModifyPassword extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('customers_model');
+        $this->load->model('profile_model');
     }
     
 	public function index(){
@@ -17,20 +18,43 @@ class ModifyPassword extends CI_Controller {
     
     public function update_password(){
         $form_data = $this->input->post();
+        echo "oldpassword: " . $form_data['oldpassword'] . "</br>";
+        echo "password: " . $form_data['password'] . "</br>";
+        echo "cpassword: " . $form_data['cpassword'];
+        
         $form_data['password'] = password_hash($form_data['password'], PASSWORD_BCRYPT);
-        $result = $this->customers_model->create_new($form_data);
-        if ($result=="existing") {
-            $form_data['error'] = "Email already used";
-            $this->load->view('register', $form_data);
+        $result = $this->customers_model-> change_password($form_data);
+        
+        //change_password torna 
+        //changed se ha cambiato la password
+        //not_changed se -la password è uguale a quella già inserita
+        
+        
+        //fare controlli se l'ha cambiato o no
+        if($result=="wrong_password"){
+            $data['error'] = "old password is wrong";
+            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $this->load->view('modifyPassword', $data);
         } else {
-            if ($result == NULL) {
-                $form_data['error'] = "Problems with the database";
-                $this->load->view('register', $form_data);
+            if ($result=="not_changed") {
+            $data['error'] = "password already in use";
+            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $this->load->view('modifyPassword', $data);
+        } else {
+            if ($result == "NULL") {
+                $data['error'] = "Problems with the database! password not changed";
+                $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+                $this->load->view('modifyPassword', $data);
             } else {
-                //TODO settare session
-                $this->load->view('login');
+                
+                //chiedere a silvia se si può utilizzare open_profile() di Profile.php
+                
+                $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+                $this->load->view('modifyPassword', $data);
             }
         }
+        }
+        
     }
-    
+     
 }
