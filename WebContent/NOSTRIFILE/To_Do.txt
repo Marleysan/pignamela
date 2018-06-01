@@ -17,8 +17,9 @@ Features:
 //1 FARE TUTTO Admin
 //1 Cart
 //1 fare pagina di conferma ordine
-//[bug]quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
 //1 Filter men / woman
+//[bug] Quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
+
 
 //2 mettere i "past cart" nel profile 
 //3 Search dentro i browse 

@@ -72,15 +72,15 @@ class Cart extends CI_Controller {
     }
     
     public function open_cart(){
-        $res['elements'] = $this -> carts_model -> get_cart_elements(); //questo contiene cart_id e detail_id.
+        $data['elements'] = $this -> carts_model -> get_cart_elements(); //questo contiene cart_id e detail_id.
         
         
         $data['products'] = $this -> products_model -> get_all_products(); //questo contiene product_id, name, description, gender, price e type.
-        
+        /*
         foreach ($data['elements'] as $elem){
             //$elem['element_detail_id'] 
         }
-        
+        */
         $this -> load -> view('cart', $data);
     }
 }
