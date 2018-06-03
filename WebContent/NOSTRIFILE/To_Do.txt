@@ -16,18 +16,16 @@ Security:
 Features:
 
 //1 Controlli quando si prova ad andare da index a profile senza essere loggati
-//1 Cart
-//1 fare pagina di conferma ordine
-//1 Filter men / woman
+//1 Cart -> bottone proceed
+//1 Cart -> bottone continue shopping
+//1 paymentCheck da fare TUTTO
 //2 href su immagini in home page (ora rimandano a pagine a muzzo)
-//[bug] Quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
+//[bug]5 Quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
+//1 cambiare tutti i topnav con i cart giusti
 
 //2 eliminare echo
 //2 mettere i "past cart" nel profile 
 //3 Search dentro i browse 
-
-
-
 
 
 //-------------------------------------------------
