@@ -1,13 +1,12 @@
 DROP DATABASE IF EXISTS awesomefitdb;
 CREATE DATABASE awesomefitdb;
 
-
 -- phpMyAdmin SQL Dump
 -- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 29, 2018 alle 20:59
+-- Creato il: Giu 03, 2018 alle 17:26
 -- Versione del server: 10.1.31-MariaDB
 -- Versione PHP: 7.2.4
 
@@ -80,8 +79,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `cart_address_id`, `cart_customer_id`, `cart_ordered`, `cart_date`) VALUES
-(1, 2, 2, 0, '2018-05-27 08:45:25'),
-(11, NULL, 1, 0, '2018-05-27 09:55:52');
+(12, NULL, 1, 0, '2018-06-03 08:25:44');
 
 -- --------------------------------------------------------
 
@@ -94,6 +92,14 @@ CREATE TABLE `cart_element` (
   `element_detail_id` int(11) NOT NULL,
   `element_quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `cart_element`
+--
+
+INSERT INTO `cart_element` (`element_cart_id`, `element_detail_id`, `element_quantity`) VALUES
+(12, 1, 4),
+(12, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -114,9 +120,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `customer_firstname`, `customer_lastname`, `customer_email`, `customer_password`) VALUES
-(1, 'User', 'Lastuser', 'user@user.it', '$2y$10$Xq27J1OwMa1jYKPkF3ktAeWejEhfphKvM4RSmSXr0XvBJgBb4ll7G'),
-(2, 'Alessandro', 'Mattivi', 'marleysan.thecan@gmail.com', '$2y$10$Xq27J1OwMa1jYKPkF3ktAeWejEhfphKvM4RSmSXr0XvBJgBb4ll7G'),
-(3, 'silvia', 'silvi', 'silf@fdsa.it', '$2y$10$Xq27J1OwMa1jYKPkF3ktAeWejEhfphKvM4RSmSXr0XvBJgBb4ll7G');
+(1, 'User', 'Lastuser', 'user@user.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
+(2, 'Alessandro', 'Mattivi', 'marleysan.thecan@gmail.com', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
+(3, 'silvia', 'silvi', 'silf@fdsa.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS');
 
 -- --------------------------------------------------------
 
@@ -130,17 +136,18 @@ CREATE TABLE `product` (
   `product_description` varchar(160) NOT NULL,
   `product_gender` enum('man','woman','unisex') NOT NULL,
   `product_price` float NOT NULL,
-  `product_type` enum('T-Shirt','Pants','Skirt','Hat','Sweater','Hoodie','Socks') NOT NULL
+  `product_type` enum('T-Shirt','Pants','Skirt','Hat','Sweater','Hoodie','Socks') NOT NULL,
+  `product_season` enum('SS','FW','ND') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `product`
 --
 
-INSERT INTO `product` (`product_id`, `product_name`, `product_description`, `product_gender`, `product_price`, `product_type`) VALUES
-(1, 'Cool T-Shirt', 'a very nice t-shirt', 'man', 10.99, 'T-Shirt'),
-(2, 'very nice hat', 'veri nice fedora', 'unisex', 69.69, 'hat'),
-(3, 'awesome skirt ', 'awesome but a little akward', 'woman', 14.16, 'skirt');
+INSERT INTO `product` (`product_id`, `product_name`, `product_description`, `product_gender`, `product_price`, `product_type`, `product_season`) VALUES
+(1, 'Cool T-Shirt', 'a very nice t-shirt', 'man', 10.99, 'Sweater', 'SS'),
+(2, 'very nice hat', 'veri nice fedora', 'unisex', 69.69, 'Hat', 'ND'),
+(3, 'awesome skirt ', 'awesome but a little akward', 'woman', 14.16, 'Skirt', 'SS');
 
 -- --------------------------------------------------------
 
@@ -238,7 +245,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT per la tabella `customer`

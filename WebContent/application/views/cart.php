@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
 
 <head>
@@ -31,7 +30,9 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
      
-     <?php if(isset($_SESSION["user_id"])) {
+     <?php 
+        $sum = 0;
+        if(isset($_SESSION["user_id"])) {
         echo "<li><a href=\"http://localhost/profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><i class=\"glyphicon glyphicon-user\"></i>  Profile</a></li>";
     }
       else {
@@ -39,7 +40,7 @@
       }
     ?>
      
-      <li><a href="http://localhost/cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+      <li><a href="http://localhost/cart/open_cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
     </ul>
   </div>
 </nav>
@@ -49,19 +50,35 @@
   
   <?php foreach ($elements as $element): ?>
   
-  <!-- qui dentro -->
+  <!-- qui dentro TODO fare i big lavorini -->
   <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
     <div class="panel-body" style="height: 110px;">
      
-     <img src="assets/img/Knit.png" style="height: 80px;">
-     <label style="margin: 30px;">Knit</label>
-     <button type="submit" class="btn btn-primary" style="float: right; margin: 25px;">Remove</button>
-     <input type="number" style="float: right; width: 50px; margin: 30px;">
+     <form action="http://localhost/cart/update_element/" method="POST">
+     <img src="http://localhost/assets/img/products/<?php echo $element['product_id']; ?>.png" style="height: 80px;">
+     <label style="margin: 30px;"><?php echo $element['product_name']; ?></label>
+     <label style="margin: 30px;"><?php echo $element['detail_size']; ?></label>
+     <label style="margin: 30px;"><?php echo $element['product_price']; ?></label>
+     
+     
+     <input type="number" value="<?php echo $element['element_quantity']?>" style="float: right; width: 50px; margin: 30px;">
+     <button type="submit" class="btn btn-primary" style="float: right; margin: 25px;">Update Quantity</button>
+     </form> 
+     
+     <a href="http://localhost/cart/remove_element/<?php echo $element['element_detail_id']?>">
+         <button class="btn btn-primary" style="float: right; margin: 25px;">Remove</button>
+     </a>
+     
+        
+    
      
    </div>
  </div>
   
-  <?php endforeach; ?>
+  <?php 
+    $sum += $element['product_price'] * $element['element_quantity'];
+    
+    endforeach; ?>
   
   
   
@@ -75,18 +92,18 @@
    
    
     <label style="margin: 30px;">Subtotal</label>
-    <label>€ xxx.xx</label><br>
+    <label>€ <?php echo $sum?></label><br>
     <label style="margin-left: 30px;">Shipping</label>
     <label style="color: #35C94A">Free</label><br>
     <!-- mettere un if con soglia per free <label>€ 3.50</label><br> -->
     <label style="margin-left: 30px; color: #919191">Shipping is possible to an address of your chosing.</label><br>
     <label style="margin-left: 30px;">Total</label>
-    <label>€ xxx.xx</label><br>
+    <label>€ <?php echo $sum?></label><br>
     
   </div>
 </div>
 
-<a href="index.php"><label style="margin-left: 250px;">Continue shopping</label></a>
+<a href="index.php"><label style="margin-left: 250px;">Continue shopping</label></a> <!-- TODO implementare -->
 <a href="paymentConfirmation.php"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 250px;">proceeed</button></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

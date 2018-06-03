@@ -25,44 +25,44 @@ class Cart extends CI_Controller {
         //se session è vuoto -> login
         echo "bottone addtoCart è stato premuto </br>"; 
         
-        
+    
         if (isset($_SESSION['user_id'])){
             //se l'utente è loggato correttamente
             echo "l'utente è loggato </br>";
             
-            $result = $this -> carts_model -> check_carts();
-            if ($result != 0){
+            $cart_id = $this -> carts_model -> check_carts();
+            if ($cart_id != 0){
                 //se esiste già un cart attivo
                 echo "l'utente ha già un cart attivo </br>";
                 
                 //aggiungo prodotto al cart
                 $data = array(
                 'detail_product_id' => $product_id,
-                'cart_id' => $result,
+                'cart_id' => $cart_id,
                 'detail_size' => $form_data['size']
                 );
                 $this -> carts_model -> add_cart_element($data);
                 
                 //apro la cart view
-                $this->open_cart();
+                redirect('cart/open_cart');
             } else {
                 //se non c'è un cart attivo
                 echo "l'utente NON ha un cart attivo </br>";
                 
                 //creazione del carrello attivo per questo utente
-                $result = $this -> carts_model -> create_cart();
-                echo "id carrello: " . $result;
+                $cart_id = $this -> carts_model -> create_cart();
+                echo "id carrello: " . $cart_id;
                 
                 //aggiungo prodotto al cart
                 $data = array(
                 'detail_product_id' => $product_id,
-                'cart_id' => $result,
+                'cart_id' => $cart_id,
                 'detail_size' => $form_data['size']
                 );
                 $this -> carts_model -> add_cart_element($data);
                 
                 //apro la cart view
-                $this->open_cart();
+                redirect('cart/open_cart');
             }
         }else {
             //se l'utente deve ancora fare il login
@@ -72,15 +72,32 @@ class Cart extends CI_Controller {
     }
     
     public function open_cart(){
-        $data['elements'] = $this -> carts_model -> get_cart_elements(); //questo contiene cart_id e detail_id.
-        
-        
-        $data['products'] = $this -> products_model -> get_all_products(); //questo contiene product_id, name, description, gender, price e type.
-        /*
-        foreach ($data['elements'] as $elem){
-            //$elem['element_detail_id'] 
+        if (isset($_SESSION['user_id'])){
+            $cart_id = $this -> carts_model -> check_carts();
+            if ($cart_id == 0){
+                $cart_id = $this -> carts_model -> create_cart();  
+            } 
+            
+            $data['elements'] = $this -> carts_model -> get_cart_elements();
+            
+            $this -> load -> view('cart', $data);
+        } else {
+            $info["error"] = "you need to do to the login first";
+            $this->load->view('login', $info);
         }
-        */
-        $this -> load -> view('cart', $data);
+        
+    }
+    
+    public function update_element(){
+        
+    }
+    
+    public function remove_element($detail_id){
+        $cart_id = $this -> carts_model -> check_carts();
+        $this->db->where('element_detail_id', $detail_id);
+        $this->db->where('element_cart_id', $cart_id);
+        $this->db->delete('cart_element');
+        
+        redirect('cart/open_cart');
     }
 }

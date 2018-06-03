@@ -77,7 +77,7 @@
       
        <div style="width: 100px;">
         
-         <a href="http://localhost/cart"><button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button></a>
+         <a><button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button></a>
     
            </div>
             </div>

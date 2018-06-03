@@ -10,7 +10,7 @@ class Carts_model extends CI_Model {
         }
 
          
-    //controlla se esiste un cart collegato di un utente e che il ordered value sia "false" -> se lo trova torna true, altrimenti false
+    //controlla se esiste un cart collegato di un utente e che il ordered value sia "false" -> se lo trova torna true, altrimenti false 
         public function check_carts(){
             $cartID = 0;
             $query = $this -> db -> get_where('cart',"cart_customer_id = '" . $_SESSION['user_id'] . "' AND cart_ordered = '0'");
@@ -44,11 +44,10 @@ class Carts_model extends CI_Model {
             
             $element = array(
                 'element_cart_id' => $data['cart_id'],
-                'element_detail_id' => $detail_id
+                'element_detail_id' => $detail_id,
+                'element_quantity' => '1'
             );
             $this->db->insert('cart_element', $element); 
-            
-            
             
         }
     
@@ -67,7 +66,21 @@ class Carts_model extends CI_Model {
     
     public function get_cart_elements(){
         $data = $this -> get_cart();
-        $query = $this -> db -> get_where('cart_element', "element_cart_id = " . $data['cart_id']);
-        return $query -> result_array();
+        
+        $this->db->select('*');
+        $this->db->from('cart_element');
+        $this->db->join('product_detail', 'cart_element.element_detail_id = product_detail.detail_id');
+        $this->db->join('product', 'product.product_id = product_detail.detail_product_id');
+        $this -> db -> where('element_cart_id', $data['cart_id']);
+        $query = $this->db->get();
+        
+        
+        $data = array();
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $data = $query->result_array();
+            
+        }
+        
+        return $data;
     }
 }
