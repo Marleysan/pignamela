@@ -83,4 +83,23 @@ class Carts_model extends CI_Model {
         
         return $data;
     }
+    
+    public function update_cart_element($cart_id, $quantity, $detail_id) {
+        
+        $this->db->set('element_quantity', $quantity);
+        $this->db->where('element_cart_id', $cart_id);
+        $this->db->where('element_detail_id', $detail_id);
+        $this->db->update('cart_element');
+        
+        //TODO return value
+
+    }
+    
+    public function remove_cart_element($detail_id, $cart_id){
+        $this->db->where('element_detail_id', $detail_id);
+        $this->db->where('element_cart_id', $cart_id);
+        $this->db->delete('cart_element');
+        //TODO return
+    }
+    
 }

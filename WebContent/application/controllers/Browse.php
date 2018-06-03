@@ -14,14 +14,14 @@ class Browse extends CI_Controller {
     
 	public function openmen() { 
         //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
-        $data['allproducts'] = $this->products_model->get_products_men();
+        $data['allproducts'] = $this->products_model->get_men_types();
         $data['products'] = $this->products_model->get_products_men();
 		$this->load->view('men', $data);
 	}
     
     public function openwomen() {
         //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
-        $data['allproducts'] = $this->products_model->get_products_women();
+        $data['allproducts'] = $this->products_model->get_women_types();
         $data['products'] = $this->products_model->get_products_women();
 		$this->load->view('women', $data);
 	}
@@ -74,7 +74,7 @@ class Browse extends CI_Controller {
         
         //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
         $data['products'] = $this->products_model->get_products_men_filtered($season, $priceMin, $priceMax, $type); 
-        $data['allproducts'] = $this -> products_model -> get_products_men();
+        $data['allproducts'] = $this -> products_model -> get_men_types();
         //implementare metodi filter del database
         $this -> load -> view('men', $data);
     }
@@ -115,8 +115,8 @@ class Browse extends CI_Controller {
         
         //NOTA Importante: se non si chiama più products poi il menù a tendina del category non funziona più
         $data['products'] = $this->products_model->get_products_women_filtered($season, $priceMin, $priceMax, $type); 
-        $data['allproducts'] = $this->products_model->get_products_women();
-        //implementare metodi filter nel database
+        $data['allproducts'] = $this -> products_model -> get_women_types();
+        //implementare metodi filter del database
         $this -> load -> view('women', $data);
     }
     
