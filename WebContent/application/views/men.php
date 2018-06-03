@@ -43,13 +43,13 @@
   </div>
 </nav>
     
+    
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
         <img src="http://localhost/assets/img/Men.png" style="width: 100%;" alt="men_cover">
     </div>
-
-    <div class="row" style="margin-top: 425px; margin-left: auto; margin-right: auto;">
+    
+    <div class="row" style="margin-top: 350px;">
         <form action="http://localhost/browse/filtermen"  method="POST">
-          
          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
           
             <select class="form-control" name="type" style="width: 100%; height: 30px;">
@@ -86,7 +86,6 @@
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
             <button type="submit" class="btn btn-primary" style="width: 100%;">Filter</button>
         </div>
-        
     </form>
 </div>
 
