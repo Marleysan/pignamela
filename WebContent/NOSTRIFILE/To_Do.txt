@@ -19,6 +19,7 @@ Features:
 //1 Cart
 //1 fare pagina di conferma ordine
 //1 Filter men / woman
+//2 href su immagini in home page (ora rimandano a pagine a muzzo)
 //[bug] Quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
 
 //2 eliminare echo
