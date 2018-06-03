@@ -20,9 +20,23 @@ class Admin extends CI_Controller {
     
     public function logout() {
         unset(
-            $_SESSION['admin_id']
+            $_SESSION['user_id']
         );
         $this->load->view('admin');
+    }
+    
+    public function adminPanel () {
+        
+        //TODO if session id not set
+        if (isset($_SESSION['user_id'])) {
+            $data['admin_data'] = $this->admin_model->get_admin_data($_SESSION['user_id']);
+            $data['products'] = $this->products_model->get_all_products_detail();
+            $this->load->view('adminPanel', $data);
+        }
+        else {
+            $form_data['error'] = "Please log in befor entering adminPanel!";
+            $this->load->view('admin', $form_data);
+        }
     }
     
     public function do_login() {
@@ -34,9 +48,8 @@ class Admin extends CI_Controller {
         } else {
             //TODO settare session
             $this->session->user_id = $data["admin_id"];
-            $data['admin_data'] = $this->admin_model->get_admin_data($data['admin_id']);
-            $data['products'] = $this->products_model->get_all_products_detail();
-            $this->load->view('adminPanel', $data);
+            redirect('admin/adminPanel');
+            
         }
     }
     

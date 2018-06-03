@@ -49,7 +49,7 @@
         <div class="row" style="margin-left: 200px; margin-right: 200px; margin-top: 15px; text-align: center; background-color: #EFEFEF;">
          
           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left;">
-           <img src="http://localhost/assets/img/products/<?php echo $product_item['product_id']; ?>.png" style="width: 50%; float: " alt="knit">
+           <img src="http://localhost/assets/img/products/<?php echo $product_item['product_id']; ?>.png" style="width: 50%; float: ">
            </div>
            
            
@@ -60,8 +60,11 @@
             <form action="http://localhost/cart/add_to_cart/<?php echo $product_item['product_id']; ?>" method="POST">
            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="float: right; text-align: center;">
             
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              
               <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-               <select class="form-control" name="size" style="width: 40%; height: 30px;">
+                  
+               <select class="form-control" name="size" style="width: 100%; height: 30px;">
                 <option selected>-- Size --</option> 
                 <?php 
                 foreach ($details as $detail_item):
@@ -69,22 +72,25 @@
                 endforeach;?>
                 
             </select>
+              </div>
+            
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                
+            <a href="http://localhost/cart">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+            </a>
+            </div>
             </div>
             
-            <div>
-            <label style="margin-left: 2px;">Quantity: qui bisogna mettere un check php</label>
-        </div>
-      
-       <div style="width: 100px;">
-        
-         <a><button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button></a>
-    
-           </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="float: right; margin-right:50px;">
+            <label style="margin: 15px;">N° of available items: <?php echo $detail_item['detail_quantity']; ?></label>
+            </div>
             </div>
             </form>
             
         
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="float: right; margin-right:80px;"><h3>Description</h3><label style="margin-top: 0px; color: gray;"><?php echo $product_item['product_description']; ?></label>
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="float: right; margin-right:80px;"><h3><u>Description</u></h3><label style="margin-top: 0px; color: gray;"><?php echo $product_item['product_description']; ?></label>
             </div>
             
         </div>

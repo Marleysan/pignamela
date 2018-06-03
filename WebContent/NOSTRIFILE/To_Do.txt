@@ -15,7 +15,7 @@ Security:
 
 Features:
 
-//1 FARE TUTTO Admin
+//1 Controlli quando si prova ad andare da index a profile senza essere loggati
 //1 Cart
 //1 fare pagina di conferma ordine
 //1 Filter men / woman
