@@ -88,15 +88,17 @@ class Cart extends CI_Controller {
         
     }
     
-    public function update_element(){
-        
+    public function update_element($detail_id){
+        $quantity = $this -> input -> post('quantity');
+        $cart_id = $this -> carts_model -> check_carts();
+        $this->carts_model->update_cart_element($cart_id, $quantity, $detail_id);
+        redirect('cart/open_cart');
     }
     
     public function remove_element($detail_id){
         $cart_id = $this -> carts_model -> check_carts();
-        $this->db->where('element_detail_id', $detail_id);
-        $this->db->where('element_cart_id', $cart_id);
-        $this->db->delete('cart_element');
+        
+        $this -> carts_model -> remove_cart_element($detail_id, $cart_id);
         
         redirect('cart/open_cart');
     }

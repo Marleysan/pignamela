@@ -25,7 +25,7 @@ class Products_model extends CI_Model {
         $this->db->join('product_detail', 'product.product_id = product_detail.detail_product_id');
         $this->db->order_by('product_detail.detail_size', 'DESC');
         $query = $this->db->get();
-        
+         
         $data = array();
         if ($query !== FALSE && $query->num_rows() > 0) {
             $data = $query->result_array();
@@ -39,6 +39,18 @@ class Products_model extends CI_Model {
         //$query = $this -> db -> get_where('')
     }
     
+    
+    public function get_men_types() {
+        $this->db->group_by('product_type');
+        $query = $this->db->get_where('product', "(product_gender = 'man' OR product_gender = 'unisex')");
+        return $query->result_array();
+    }
+    
+    public function get_women_types() {
+        $this->db->group_by('product_type');
+        $query = $this->db->get_where('product', "(product_gender = 'woman' OR product_gender = 'unisex')");
+        return $query->result_array();
+    }
     
     
         public function get_products_men() {
@@ -69,6 +81,32 @@ class Products_model extends CI_Model {
     public function get_products_men_filtered($season, $priceMin, $priceMax, $type){
         
         $this->db->where("(product_gender = 'man' OR product_gender = 'unisex')");
+        
+        if ($season != FALSE){
+            $this->db->where("(product_season = '" . $season . "' OR product_season = 'ND')");
+        }
+        
+        if ($priceMax != FALSE){
+            $this->db->where("(product_price >= '" . $priceMin . "' AND product_price <= '" . $priceMax . "')");
+        }
+        
+        if ($type != FALSE){
+            $this->db->where('product_type', $type);
+        }
+        
+        $query = $this->db->get('product');
+        
+        $data = array();
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $data = $query->result_array();
+        }
+        
+        return $data;
+    }
+    
+    public function get_products_women_filtered($season, $priceMin, $priceMax, $type){
+        
+        $this->db->where("(product_gender = 'woman' OR product_gender = 'unisex')");
         
         if ($season != FALSE){
             $this->db->where("(product_season = '" . $season . "' OR product_season = 'ND')");
