@@ -19,6 +19,21 @@ class Products_model extends CI_Model {
             return $query->result_array();
     }
     
+    public function get_all_products_detail () {
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->join('product_detail', 'product.product_id = product_detail.detail_product_id');
+        $this->db->order_by('product_detail.detail_size', 'DESC');
+        $query = $this->db->get();
+        
+        $data = array();
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $data = $query->result_array();
+        }
+        
+        return $data;
+    }
+    
     public function get_product_by_detail($detail_id){
         //??
         //$query = $this -> db -> get_where('')
@@ -43,6 +58,20 @@ class Products_model extends CI_Model {
             
             return $query -> result_array();
         }
+    
+        //Returns only the product_detail specified
+        public function get_detail($id){
+            $query = $this -> db -> get_where('product_detail', array('detail_id' => $id));
+            
+            return $query -> row_array();
+        }
+    
+     public function update_quantity ($detail_id, $quantity) {
+        $this -> db -> set('detail_quantity', $quantity);
+        $this -> db -> where('detail_id', $detail_id);
+        $this -> db -> update('product_detail');
+         return ; //TODO handle error
+    }
     
     
     

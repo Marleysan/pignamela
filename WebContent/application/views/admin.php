@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php 
-session_start();
-?>
 
 <html>
 
@@ -18,14 +15,16 @@ session_start();
 <body>
 
     <?php
-    if (!empty($_POST["username"]) && !empty($_POST["password"])) {
-        #login($_POST["username"], $_POST["password"]);
-    }
+        if (!empty($error)) {
+            echo '<script language="javascript">';
+            echo 'alert("'.$error.'")';
+            echo '</script>';
+        }
     ?>
 
     <div class="panel panel-default" style="width: 300px; margin: 10% auto;">
       <div class="panel-body">
-        <form method="POST">
+        <form action="http://localhost/Admin/do_login" method="POST">
 
             <!-- Title -->
             <div class="row" style="padding-bottom: 20px; margin: 0 auto;">

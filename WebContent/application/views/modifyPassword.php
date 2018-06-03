@@ -55,11 +55,11 @@
         echo "  " . $profile_data['customer_lastname'];?></h1>
     <div class="row" >
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <!-- se metti un form software aka dark souls non funziona più un tubo -->
          <a  href="http://localhost/profile/open_profile">
-          <button class="btn btn-primary" style="width: 100%;">Discard changes non funziono</button>
+          <input type="button" class="btn btn-primary" value="Discard changes" />
         </a>
       </div>
+      
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <button type="submit" class="btn btn-primary" style="width: 100%;">Save</button>
       </div>
@@ -85,14 +85,11 @@
    <div class="row" style="margin-top: 15px;">
     <!-- Password -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
-     <label>OLD Password:</label>
+     <label>Prior Password:</label>
      <input class="form-control" type="password" name="oldpassword" minlength="8" maxlength="20" placeholder="Password" required/>
    </div>
     </div>
    <div class="row" style="margin-top: 15px;">
-   <!--//controllare che la password sia valida
-   //controllare che password e confirm siano uguali
-    Password -->
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
      <label>Password:</label>
      <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="20" placeholder="Password" required/>

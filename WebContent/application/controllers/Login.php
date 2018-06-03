@@ -15,7 +15,6 @@ class Login extends CI_Controller {
         $this->load->view('login');
 	}
     
-        //TODO check for particular characters inside email and password
     public function do_login() {
         $form_data = $this->input->post();
         $data = $this->customers_model->get_customer($form_data["email"], $form_data["password"]);
