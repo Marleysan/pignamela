@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
 
 <head>
@@ -54,10 +53,10 @@
          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
           
             <select class="form-control" name="type" style="width: 100%; height: 30px;">
-               <!-- creare questi dinamicamente -->
+               <!-- TODO mettere un metodo che non sdoppia i product type se ci sono più products dello stesso type -->
                 <option selected>-- Category --</option>
                 <?php 
-                foreach ($products as $product):
+                foreach ($allproducts as $product): //TODO fare group by che non mi ripete due volte un cappello se ci sono due cappelli
                 echo "<option>" . $product['product_type'] . "</option>";
                 endforeach;?>
             </select>
@@ -76,7 +75,8 @@
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
             <select class="form-control" name="price" style="width: 100%; height: 30px;">
                 <option selected>-- Prize --</option>
-                <option>0-50</option>
+                <!-- se cambi questi valori poi non va nulla -->
+                <option>0 - 50</option>
                 <option>50 - 100</option>
                 <option>100 - 200</option>
                 <option>200+</option>
@@ -92,11 +92,10 @@
 
 <div class="row">
     
-    
     <?php foreach ($products as $product_item): ?>
        <a href = "http://localhost/browse/visualize/<?php echo $product_item['product_id']; ?>">
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="margin: 10px;">
-           <img src="http://localhost/assets/img/products/<?php echo $product_item['product_id']; ?>.png" style="width: 100%;" alt="knit"><br>
+           <img src="http://localhost/assets/img/products/<?php echo $product_item['product_id']; ?>.png" style="width: 100%;" alt=""><br>
            
             <label><?php echo $product_item['product_name']; ?></label>
             <label style="float: right;"><?php echo $product_item['product_price']; ?></label>
@@ -104,17 +103,11 @@
         </div>
     </a>
     <?php endforeach; ?>
+    <?php if (!$products) {
+        echo "No products found"; //TODO
+    } ?>
     
     </div>
-    <!-- Di questi ne vengono creati dinamicamente uno per ogni articolo nel DB
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="margin: 10px;">
-        <img src="http://localhost/assets/img/sweatpants.png" style="width: 100%;" alt="knit"><br>
-        <label>Sweatpants</label>
-        <label style="float: right;">€ 89.95</label>
-    </div> -->
-    
-    
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

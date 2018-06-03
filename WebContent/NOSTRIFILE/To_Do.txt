@@ -3,13 +3,14 @@ PRIORITY 1/2/3/4....
 Database:
 
 //1 Aggiungere password al database
+//togliere le password stupide dal database
 //2 Cambiare id da auto increment in token where needed
 
 Security:
 
 //1 implementare https protocol
 //2 usare certificates (?)
-//2 escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
+//3 escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
 //3 secret code matt (?)
 
 Features:
@@ -23,7 +24,6 @@ Features:
 
 //2 mettere i "past cart" nel profile 
 //3 Search dentro i browse 
-//4 Menubar for small screens 
 
 
 

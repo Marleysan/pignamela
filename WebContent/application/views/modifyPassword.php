@@ -90,6 +90,7 @@
    </div>
     </div>
    <div class="row" style="margin-top: 15px;">
+  
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 form-group">
      <label>Password:</label>
      <input class="form-control" type="password" name="password" id="password" minlength="8" maxlength="20" placeholder="Password" required/>

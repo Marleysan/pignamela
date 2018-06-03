@@ -40,7 +40,13 @@
     </ul>
   </div>
 </nav>
-
+<?php
+        if (!empty($error)) {
+            echo '<script language="javascript">';
+            echo 'alert("'.$error.'")';
+            echo '</script>';
+        }
+    ?>
   <div class="row" style="width: 23%; margin: 0 auto; margin-top: 20px;">
     <h1 style="text-align: center;"><?php echo $profile_data['customer_firstname'];
         echo "  " . $profile_data['customer_lastname'];?></h1>

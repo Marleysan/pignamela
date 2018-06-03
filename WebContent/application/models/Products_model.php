@@ -40,6 +40,7 @@ class Products_model extends CI_Model {
     }
     
     
+    
         public function get_products_men() {
             /*$query = $this->db->get_where('product', array('product_gender' => 'man')); */
             
@@ -65,6 +66,31 @@ class Products_model extends CI_Model {
             
             return $query -> row_array();
         }
+    public function get_products_men_filtered($season, $priceMin, $priceMax, $type){
+        
+        $this->db->where("(product_gender = 'man' OR product_gender = 'unisex')");
+        
+        if ($season != FALSE){
+            $this->db->where("(product_season = '" . $season . "' OR product_season = 'ND')");
+        }
+        
+        if ($priceMax != FALSE){
+            $this->db->where("(product_price >= '" . $priceMin . "' AND product_price <= '" . $priceMax . "')");
+        }
+        
+        if ($type != FALSE){
+            $this->db->where('product_type', $type);
+        }
+        
+        $query = $this->db->get('product');
+        
+        $data = array();
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $data = $query->result_array();
+        }
+        
+        return $data;
+    }
     
      public function update_quantity ($detail_id, $quantity) {
         $this -> db -> set('detail_quantity', $quantity);
