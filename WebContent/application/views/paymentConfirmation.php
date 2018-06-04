@@ -77,7 +77,7 @@
        </div>
        
        <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1" style="margin-bottom: 3px; margin-top: 5px;">
-         <input class="form-control" type="number" name="civicNumber" id="civicNumber" maxlength="8" placeholder="N°" required/>
+         <input class="form-control" type="number" min='1' name="civicNumber" id="civicNumber" maxlength="8" placeholder="N°" required/>
        </div>
        
        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="margin-bottom: 3px; margin-top: 5px;">

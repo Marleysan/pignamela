@@ -132,45 +132,53 @@ class Cart extends CI_Controller {
     
     public function proceed_order() {
         
-        
-        //check if session isset
-        //check esiste cart attivo
-        
-        
-        //user_id retrivare
-        //cart_id retrivato e settato come ordinato
-        //diminuire nel db la quantity dei product_detail (product_detail + cart_element)
-        
-        //copiare methodo dall admin per update quantity
-        
-        echo "bravo";
-        
         if (isset($_SESSION['user_id'])){
             $cart_id = $this -> carts_model -> check_carts();
             if ($cart_id == 0){
                 $info["error"] = "your cart is empty, add product to your cart to proceed shopping";
                 $this->load->view('index', $info);
             } 
-            $data['elements'] = $this -> carts_model -> get_cart_elements();
+            $cart_elements = $this -> carts_model -> get_cart_elements();
+           
             
-            if ($data['elements'] == array()){
+            if ($cart_elements == array()){
                 $info["error"] = "your cart is empty, add product to your cart to proceed shopping";
                 $this->load->view('index', $info);
             }
             
             $form_data = $this->input->post();
-            print_r ($form_data);
+            
             
             if (isset($form_data['street'])){
                 // nuovo indirizzo   
-                // TODO
+                $address_id = $this -> carts_model -> save_address($form_data);
+                
+                
             } else {
                 // vecchio indirizzo
-                //
+                $result = $this -> carts_model -> get_last_address();
+                $address_id = $result['address_id'];
+                
             }
-            //TODO aggiornare quantity
-            //aggiornare cart ordered e date_create
-            //redirect
+            
+            //aggiornare cart ordered e address e date_create
+            $this -> carts_model -> update_cart($address_id);
+            
+            
+            //aggiornamento della quantity
+            foreach ($cart_elements as $element){
+                if ($element['element_quantity'] >= $element['detail_quantity']){
+                    $this -> products_model -> update_quantity($element['element_detail_id'], '0');
+                } else {
+                    $this -> products_model -> update_quantity($element['element_detail_id'], ($element['element_quantity'] - $element['detail_quantity']));
+                }
+                
+            }
+            
+            //order successful
+            $info["error"] = "order placed";
+            $this->load->view('index', $info);
+            
             
         } else {
             $info["error"] = "you need to do to the login first";

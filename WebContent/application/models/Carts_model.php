@@ -64,6 +64,16 @@ class Carts_model extends CI_Model {
         return $query  -> row_array();
     }
     
+    public function update_cart($address_id){
+        $cart_id = $this -> check_carts();
+        
+        $this->db->set('cart_address_id', $address_id);
+        $this->db->set('cart_ordered', '1');
+        $this->db->where('cart_id', $cart_id);
+        $this->db->update('cart');
+        
+    }
+    
     public function get_cart_elements(){
         $data = $this -> get_cart();
         
@@ -100,6 +110,19 @@ class Carts_model extends CI_Model {
         $this->db->where('element_cart_id', $cart_id);
         $this->db->delete('cart_element');
         //TODO return
+    }
+    
+    public function save_address($data){
+        $address = array(
+                'address_state' => $data['state'],
+                'address_city' => $data['city'],
+                'address_civic_number' => $data['civicNumber'],
+                'address_zip' => $data['cap'],
+                'address_street' => $data['street']
+            );
+            $this->db->insert('address', $address);
+        
+        return $idOfInsertedData = $this->db->insert_id();
     }
     
     public function get_last_address(){
