@@ -70,57 +70,6 @@
     <h6 style="text-align: center;">PAST ORDERS</h6>
   </div>
 
-  <!--<div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
-    <div class="panel-body">
-      <form method="POST" action="create.php">
-        
-        <div class="row">
-          <!-- First Name
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-           <label>First name:</label>
-           <input class="form-control" type="text" name="firstname" maxlength="20" placeholder="mettere <php> dinamico" style="width: 370px;" required/>
-         </div>
-       </div>
-       
-       <div class="row">
-
-        <!-- Last Name 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-         <label>Last name:</label>
-         <input class="form-control" type="text" name="lastname" maxlength="20" placeholder="Last name" style="width: 370px;" required/>
-       </div>
-     </div>
-     
-     <div class="row">
-
-      <!-- Email
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-       <label>Email:</label>
-       <input class="form-control" type="email" name="email" maxlength="45" placeholder="E-mail" style="width: 370px;" required/>
-     </div>
-   </div>
-   
-   <div class="row">
-    <!-- Password
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-     <label>Password:</label>
-     <input class="form-control" type="password" name="password" minlength="8" maxlength="20" placeholder="Password" style="width: 370px;" required/>
-   </div>
- </div>
- 
- <!-- Da fare dinamico in modo che si veda solo in modify mode 
- <div class="row">
-  <!-- Confirm Password
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
-   <label>Confirm Password:</label>
-   <input class="form-control" type="password" name="cpassword" minlength="8" maxlength="20" placeholder="Confirm password" style="width: 370px;" required/>
- </div>
-</div>
-</form>
-</div>
-</div>
--->
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

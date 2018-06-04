@@ -40,12 +40,10 @@
         echo "<li><a href=\"http://localhost/login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">login  <i class=\"glyphicon glyphicon-log-in\"></i></a></li>";
       }
     ?>
-     
       <li><a href="http://localhost/cart/open_cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
     </ul>
   </div>
 </nav>
-  
   
   <h1 style="text-align: center; color: #2F2F2F; margin: 50px;">Your order</h1>
   
@@ -56,18 +54,14 @@
      
      <div class="row" style="margin: auto;">
        
-       
        <?php 
          if ($address != FALSE){
              echo "<input type=\"radio\" id=\"old\" name=\"address\" onchange = \"setRadio()\"> <b>Last used:</b> ";
              echo $address['address_street'] . ", " . $address['address_civic_number'] . ", " . $address['address_city'] . ", " . $address['address_zip'] . ", " . $address['address_state'];
          }
-         
-         
          ?>
        
      </div>
-     
      
      <div class="row" style="margin: auto; margin-top: 5px;">
        <input type="radio" name="address" id="new" onchange = "setRadio()" checked> New Address <br>
@@ -98,7 +92,6 @@
  
  <?php foreach ($elements as $element): ?>
   
-  <!-- qui dentro TODO fare i big lavorini -->
   <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
     <div class="panel-body" style="height: 110px;">
      
@@ -120,7 +113,6 @@
         <button class="btn btn-primary" style="float: right; margin: 25px;">Remove</button>
      </a>
      
-        
    </div>
  </div>
   
@@ -128,7 +120,6 @@
     $sum += $element['product_price'] * $element['element_quantity'];
     endforeach; ?>
   
-
 <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
   <div class="panel-body">
    
@@ -137,7 +128,6 @@
     <label>€ <?php echo $sum?></label><br>
     <label style="margin-left: 30px;">Shipping</label>
     <label style="color: #35C94A">Free</label><br>
-    <!-- mettere un if con soglia per free <label>€ 3.50</label><br> -->
     <label style="margin-left: 30px; color: #919191">Shipping is possible to an address of your chosing.</label><br>
     <label style="margin-left: 30px;">Total</label>
     <label>€ <?php echo $sum?></label><br>
@@ -151,15 +141,8 @@
 
 <a href="http://localhost/cart/open_cart"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 25px;">Abort</button></a>
 
-
-
-
-
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 
 <script>
    function setRadio(){
@@ -198,7 +181,6 @@
            
        }
        
-       //echo "cambiato";
    }
     </script>
 

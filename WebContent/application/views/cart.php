@@ -50,7 +50,6 @@
   
   <?php foreach ($elements as $element): ?>
   
-  <!-- qui dentro TODO fare i big lavorini -->
   <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
     <div class="panel-body" style="height: 110px;">
      
@@ -84,7 +83,6 @@
     <label>€ <?php echo $sum?></label><br>
     <label style="margin-left: 30px;">Shipping</label>
     <label style="color: #35C94A">Free</label><br>
-    <!-- mettere un if con soglia per free <label>€ 3.50</label><br> -->
     <label style="margin-left: 30px; color: #919191">Shipping is possible to an address of your chosing.</label><br>
     <label style="margin-left: 30px;">Total</label>
     <label>€ <?php echo $sum?></label><br>
@@ -92,7 +90,7 @@
   </div>
 </div>
 
-<a href="http://localhost/home"><label style="margin-left: 145px;">Continue shopping</label></a> <!-- TODO implementare -->
+<a href="http://localhost/home"><label style="margin-left: 145px;">Continue shopping</label></a>
 <a href="http://localhost/cart/open_confirmation"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 145px;">proceeed</button></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

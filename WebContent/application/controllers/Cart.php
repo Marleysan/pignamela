@@ -43,9 +43,7 @@ class Cart extends CI_Controller {
     
     public function add_to_cart($product_id){
         $form_data = $this -> input -> post();
-        //id utente da session $_SESSION['user_id']
         //se session è vuoto -> login
-        //echo "bottone addtoCart è stato premuto </br>"; 
         
     
         if (isset($_SESSION['user_id'])){

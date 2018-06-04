@@ -18,7 +18,6 @@ class Carts_model extends CI_Model {
                 $ret = $query->row();
                 $cartID = $ret -> cart_id;
             }
-            //echo "</br></br>" . $cartID . "</br></br>   ";
             return $cartID;
         }
     
@@ -40,7 +39,6 @@ class Carts_model extends CI_Model {
                 'detail_size' => $data['detail_size']
                 );
             $detail_id = $this -> get_detail_id($detail);
-            echo "il detail id del prodotto specificato è :" . $detail_id;
             
             $element = array(
                 'element_cart_id' => $data['cart_id'],
@@ -154,6 +152,5 @@ class Carts_model extends CI_Model {
         
         return $query -> row_array();
     }
-    
     
 }

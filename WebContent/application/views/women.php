@@ -62,8 +62,6 @@
             </select>
         </div>
         
-        
-        
         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <select class="form-control" name="season" style="width: 100%; height: 30px;">
                 <option selected>-- Season --</option>

@@ -56,18 +56,15 @@ class Customers_model extends CI_Model {
                     
                     //controlla che la nuova password non sia uguale alla vecchia
                     if (password_verify($form_data['oldpassword'], $form_data["password"])){
-                        //ritornare not_changed -> password vecchia e nuova sono uguali
                         return "not_changed";
                     } else {
                         //cambio la password di $_SESSION['user_id'] con questa-> $form_data["password"]
                         $this -> db -> set('customer_password', $form_data["password"]);
                         $this -> db -> where('customer_id', $_SESSION['user_id']);
                         $this -> db -> update('customer');
-                        //ritornare changed
                         return "changed";
                     }                    
                 } else {
-                    //ritornare old password inserita è sbagliata
                     return "wrong_password";
                 }
             //ritornare NULL -> errore di connessione del database

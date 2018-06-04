@@ -25,8 +25,7 @@
     </form>
     </div>
   </div>
-  
-  <!-- Di questi ne vengono creati dinamicamente per ogni articolo nel DB -->    
+      
 <?php foreach ($products as $product_item): ?>
  <form action="/admin/change_quantity/<?php echo $product_item['detail_id']; ?>" method="post">
   <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">

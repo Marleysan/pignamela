@@ -53,7 +53,6 @@ class Products_model extends CI_Model {
     
     
         public function get_products_men() {
-            /*$query = $this->db->get_where('product', array('product_gender' => 'man')); */
             
             $query = $this->db->get_where('product', "(product_gender = 'man' OR product_gender = 'unisex')");
             return $query->result_array();

@@ -53,10 +53,9 @@
          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
           
             <select class="form-control" name="type" style="width: 100%; height: 30px;">
-               <!-- TODO mettere un metodo che non sdoppia i product type se ci sono più products dello stesso type -->
                 <option selected>-- Category --</option>
                 <?php 
-                foreach ($allproducts as $product): //TODO fare group by che non mi ripete due volte un cappello se ci sono due cappelli
+                foreach ($allproducts as $product):
                 echo "<option>" . $product['product_type'] . "</option>";
                 endforeach;?>
             </select>

@@ -96,7 +96,6 @@
                 </div>
             </div>
             
-            
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                <button type="submit" class="btn btn-primary" style="width: 150px;">Register</button>
             </div>
