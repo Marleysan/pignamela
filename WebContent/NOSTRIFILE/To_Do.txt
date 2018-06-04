@@ -16,16 +16,15 @@ Security:
 Features:
 
 //1 articleView quantity da sistemare dinamico
+//1 Controlli quando si prova ad andare da index a profile senza essere loggati
+
 //2 controllare i title delle pagine web
-//2 controllare messaggio di nessun prodotot trovto dopo filter
 //2 mettere 00 nel database (prezzi product)
 
-//2 eliminare echo e fare pulizie di primavera
-//4 mettere i "past cart" nel profile 
-//74 Search dentro i browse 
+//5 mettere i "past cart" nel profile 
 //4 label shipping is possible to an address of your choosing
 //2 check if quantity updated è negativa oppure no
-//2 fare in modo che address non venga inserito quando selezioni quello vecchio in proceed cart
+
 
 //-------------------------------------------------
 
