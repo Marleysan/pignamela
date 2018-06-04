@@ -15,7 +15,6 @@ Security:
 
 Features:
 
-//1 articleView quantity da sistemare dinamico
 //1 Controlli quando si prova ad andare da index a profile senza essere loggati
 
 //2 controllare i title delle pagine web

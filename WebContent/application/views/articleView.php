@@ -31,7 +31,8 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
      
-     <?php if(isset($_SESSION["user_id"])) {
+     <?php
+        if(isset($_SESSION["user_id"])) {
         echo "<li><a href=\"http://localhost/profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><i class=\"glyphicon glyphicon-user\"></i>  Profile</a></li>";
     }
       else {
@@ -64,14 +65,14 @@
               
               <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
                   
-               <select class="form-control" name="size" style="width: 100%; height: 30px;">
+               <select class="form-control" name="size" style="width: 100%; height: 30px;" onchange="setQuantity(this)">
                 <option selected>-- Size --</option> 
                 <?php 
                 foreach ($details as $detail_item):
-                echo "<option>" . $detail_item['detail_size'] . "</option>";
+                    echo "<option>" . $detail_item['detail_size'] . "</option>";
                 endforeach;?>
                 
-            </select>
+                </select>
               </div>
             
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
@@ -84,7 +85,7 @@
             
             
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="float: right; margin-right:50px;">
-            <label style="margin: 15px;">N° of available items: <?php echo $detail_item['detail_quantity']; ?></label>
+            <label id="quantity" style="margin: 15px;">N° of available items: undefined</label>
             </div>
             </div>
             </form>
@@ -99,6 +100,20 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script>
+        
+        var quantities = new Array();
+        
+       <?php foreach ($details as $detail_item): ?>
+        quantities['<?php echo $detail_item['detail_size'] ?>'] = <?php echo $detail_item['detail_quantity'] ?>           
+        <?php  endforeach;?>
+        
+        function setQuantity(selectObject) {
+            document.getElementById("quantity").innerHTML = "N° of available items: " + quantities[selectObject.value];
+        }
+
+    </script>
 </body>
 
 </html>
