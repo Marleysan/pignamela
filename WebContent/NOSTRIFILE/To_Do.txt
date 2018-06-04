@@ -15,11 +15,13 @@ Security:
 
 Features:
 
+//1 articleView quantity da sistemare dinamico
 //1 Controlli quando si prova ad andare da index a profile senza essere loggati
 //1 Cart -> bottone proceed
 //1 Cart -> bottone continue shopping
 //1 paymentCheck da fare TUTTO
 //2 href su immagini in home page (ora rimandano a pagine a muzzo)
+//2 controllare i title delle pagine web
 //[bug]5 Quando un utente aggiuge per la seconda volta lo stesso prodotto nel carrello controllare se già è presente e aumentare quantity o non aggiungere prodotto nuovamente al carrello
 //1 cambiare tutti i topnav con i cart giusti
 
