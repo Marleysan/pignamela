@@ -27,8 +27,8 @@ class Profile extends CI_Controller {
             $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
             $this->load->view('profile', $data);
         } else {
-            //se l'utente deve ancora fare il login
-            $info["error"] = "you need to do to the login first";
+            //if the user still needs to perform login
+            $info["error"] = "You need to be logged in to access profile page!";
             $this->load->view('login', $info);
         }
         
@@ -40,8 +40,8 @@ class Profile extends CI_Controller {
             $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
             $this->load->view('modifyPassword', $data);
         } else {
-            //se l'utente deve ancora fare il login
-            $info["error"] = "you need to do to the login first";
+            //if the user still needs to perform login
+            $info["error"] = "You need to be logged in to access this page!";
             $this->load->view('login', $info);
         }
         

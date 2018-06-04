@@ -11,10 +11,6 @@ class ArticleView extends CI_Controller {
         $this->load->model('products_model');
         $this->load->library('session');
     }
-    
-	public function get_size($product_id){
-        
-    }
 }
 
 
