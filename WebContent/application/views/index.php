@@ -43,6 +43,14 @@
     </ul>
   </div>
 </nav>
+ 
+ <?php
+        if (!empty($error)) {
+            echo '<script language="javascript">';
+            echo 'alert("'.$error.'")';
+            echo '</script>';
+        }
+    ?>
   
   <div class="row">
 

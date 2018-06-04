@@ -17,6 +17,7 @@ class ModifyPassword extends CI_Controller {
 	}
     
     public function update_password(){
+        if (isset($_SESSION['user_id'])){
         $form_data = $this->input->post();
         /*echo "oldpassword: " . $form_data['oldpassword'] . "</br>";
         echo "password: " . $form_data['password'] . "</br>";
@@ -60,5 +61,9 @@ class ModifyPassword extends CI_Controller {
             }
         }
         } 
+    }else {
+        $info["error"] = "you need to do to the login first";
+            $this->load->view('login', $info);
+    }
     }
 }

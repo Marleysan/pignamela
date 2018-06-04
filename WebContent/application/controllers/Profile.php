@@ -19,17 +19,34 @@ class Profile extends CI_Controller {
         unset(
             $_SESSION['user_id']
         );
-        $this->load->view('index');
+        redirect('home/index');
     }
     
     public function open_profile(){
+        if (isset($_SESSION['user_id'])){
             $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
             $this->load->view('profile', $data);
+        } else {
+            //se l'utente deve ancora fare il login
+            $info["error"] = "you need to do to the login first";
+            $this->load->view('login', $info);
+        }
+        
     }
     
     public function modify_password () {
-        $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
-        $this->load->view('modifyPassword', $data);
+        
+        if (isset($_SESSION['user_id'])){
+            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $this->load->view('modifyPassword', $data);
+        } else {
+            //se l'utente deve ancora fare il login
+            $info["error"] = "you need to do to the login first";
+            $this->load->view('login', $info);
+        }
+        
+        
+        
     }
     
 }

@@ -18,7 +18,7 @@ class Carts_model extends CI_Model {
                 $ret = $query->row();
                 $cartID = $ret -> cart_id;
             }
-            echo "</br></br>" . $cartID . "</br></br>   ";
+            //echo "</br></br>" . $cartID . "</br></br>   ";
             return $cartID;
         }
     
@@ -101,5 +101,36 @@ class Carts_model extends CI_Model {
         $this->db->delete('cart_element');
         //TODO return
     }
+    
+    public function get_last_address(){
+        $user_id = $_SESSION['user_id'];
+        
+        $this -> db -> where('cart_ordered', '1');
+        $this -> db -> where('cart_customer_id', $user_id);
+        $this -> db -> order_by('cart_date', 'DESC');
+        $this -> db -> limit(1);
+        $this -> db -> from('cart');
+        $query = $this -> db -> get();
+        
+        
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $result = $query -> row_array();
+            $address_id = $result['cart_address_id'];
+            
+            $data = $this -> get_address_by_id($address_id);
+            
+        } else {
+            return FALSE;
+        }
+        
+        return $data;       
+    }
+    
+    public function get_address_by_id($id){
+        $query = $this -> db -> get_where('address', "address_id = '". $id ."'");
+        
+        return $query -> row_array();
+    }
+    
     
 }

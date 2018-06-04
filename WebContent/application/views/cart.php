@@ -101,8 +101,8 @@
   </div>
 </div>
 
-<a href="index.php"><label style="margin-left: 250px;">Continue shopping</label></a> <!-- TODO implementare -->
-<a href="paymentConfirmation.php"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 250px;">proceeed</button></a>
+<a href="http://localhost/home"><label style="margin-left: 250px;">Continue shopping</label></a> <!-- TODO implementare -->
+<a href="http://localhost/cart/open_confirmation"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 250px;">proceeed</button></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

@@ -14,26 +14,48 @@ class Cart extends CI_Controller {
     }
     
 	public function index(){
-        $form_data = $this -> input -> post();
-        //$result = $this -> customers_model -> 
-		$this->load->view('cart');
+        redirect('cart/open_cart');
 	}
+    
+    public function open_confirmation(){
+        if (isset($_SESSION['user_id'])){
+            $cart_id = $this -> carts_model -> check_carts();
+            if ($cart_id == 0){
+                $info["error"] = "your cart is empty, add product to your cart to proceed shopping";
+                $this->load->view('index', $info);
+            } 
+            $data['elements'] = $this -> carts_model -> get_cart_elements();
+            
+            if ($data['elements'] == array()){
+                $info["error"] = "your cart is empty, add product to your cart to proceed shopping";
+                $this->load->view('index', $info);
+            }
+            
+            $data['address'] = $this -> carts_model -> get_last_address();          
+            
+            $this->load->view('paymentConfirmation', $data);
+        } else {
+            $info["error"] = "you need to do to the login first";
+            $this->load->view('login', $info);
+        }
+        
+    }
     
     public function add_to_cart($product_id){
         $form_data = $this -> input -> post();
         //id utente da session $_SESSION['user_id']
         //se session è vuoto -> login
-        echo "bottone addtoCart è stato premuto </br>"; 
+        //echo "bottone addtoCart è stato premuto </br>"; 
         
     
         if (isset($_SESSION['user_id'])){
             //se l'utente è loggato correttamente
-            echo "l'utente è loggato </br>";
+            //echo "l'utente è loggato </br>";
             
             $cart_id = $this -> carts_model -> check_carts();
             if ($cart_id != 0){
                 //se esiste già un cart attivo
-                echo "l'utente ha già un cart attivo </br>";
+                //echo "l'utente ha già un cart attivo </br>";
                 
                 //aggiungo prodotto al cart
                 $data = array(
@@ -47,11 +69,11 @@ class Cart extends CI_Controller {
                 redirect('cart/open_cart');
             } else {
                 //se non c'è un cart attivo
-                echo "l'utente NON ha un cart attivo </br>";
+                //echo "l'utente NON ha un cart attivo </br>";
                 
                 //creazione del carrello attivo per questo utente
                 $cart_id = $this -> carts_model -> create_cart();
-                echo "id carrello: " . $cart_id;
+               // echo "id carrello: " . $cart_id;
                 
                 //aggiungo prodotto al cart
                 $data = array(
@@ -88,13 +110,17 @@ class Cart extends CI_Controller {
         
     }
     
+    
+    //TODO che succede se un utente si mette a giocare con questo nell'url?
     public function update_element($detail_id){
         $quantity = $this -> input -> post('quantity');
         $cart_id = $this -> carts_model -> check_carts();
         $this->carts_model->update_cart_element($cart_id, $quantity, $detail_id);
+        
         redirect('cart/open_cart');
     }
     
+    //TODO che succede se un utente si mette a giocare con questo nell'url?
     public function remove_element($detail_id){
         $cart_id = $this -> carts_model -> check_carts();
         
@@ -102,4 +128,55 @@ class Cart extends CI_Controller {
         
         redirect('cart/open_cart');
     }
+    
+    
+    public function proceed_order() {
+        
+        
+        //check if session isset
+        //check esiste cart attivo
+        
+        
+        //user_id retrivare
+        //cart_id retrivato e settato come ordinato
+        //diminuire nel db la quantity dei product_detail (product_detail + cart_element)
+        
+        //copiare methodo dall admin per update quantity
+        
+        echo "bravo";
+        
+        if (isset($_SESSION['user_id'])){
+            $cart_id = $this -> carts_model -> check_carts();
+            if ($cart_id == 0){
+                $info["error"] = "your cart is empty, add product to your cart to proceed shopping";
+                $this->load->view('index', $info);
+            } 
+            $data['elements'] = $this -> carts_model -> get_cart_elements();
+            
+            if ($data['elements'] == array()){
+                $info["error"] = "your cart is empty, add product to your cart to proceed shopping";
+                $this->load->view('index', $info);
+            }
+            
+            $form_data = $this->input->post();
+            print_r ($form_data);
+            
+            if (isset($form_data['street'])){
+                // nuovo indirizzo   
+                // TODO
+            } else {
+                // vecchio indirizzo
+                //
+            }
+            //TODO aggiornare quantity
+            //aggiornare cart ordered e date_create
+            //redirect
+            
+        } else {
+            $info["error"] = "you need to do to the login first";
+            $this->load->view('login', $info);
+        }
+        
+    }
+    
 }
