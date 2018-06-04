@@ -58,13 +58,13 @@
      </a>
      
      <form action="http://localhost/cart/update_element/<?php echo $element['element_detail_id']?>" method="POST">
-     <img src="http://localhost/assets/img/products/<?php echo $element['product_id']; ?>.png" style="height: 80px;">
-     <label style="margin: 30px;"><?php echo $element['product_name']; ?></label>
-     <label style="margin: 30px;">Size: <?php echo $element['detail_size']; ?></label>
-     <label style="margin: 30px;">€ <?php echo $element['product_price']; ?></label>
-     
-     <button type="submit" class="btn btn-primary" style="float: right; margin: 25px;">Update Quantity</button>
-     <input type="number" name="quantity" value="<?php echo $element['element_quantity']?>" style="float: right; width: 50px; margin: 30px;">
+         <img src="http://localhost/assets/img/products/<?php echo $element['product_id']; ?>.png" style="height: 80px;">
+         <label style="margin: 30px;"><?php echo $element['product_name']; ?></label>
+         <label style="margin: 30px;">Size: <?php echo $element['detail_size']; ?></label>
+         <label style="margin: 30px;">€ <?php echo $element['product_price']; ?></label>
+
+         <button type="submit" class="btn btn-primary" style="float: right; margin: 25px;">Update Quantity</button>
+         <input type="number" name="quantity" min="1" value="<?php echo $element['element_quantity']?>" style="float: right; width: 50px; margin: 30px;">
      </form> 
         
    </div>
@@ -95,6 +95,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    
+
+    
+</script>
+
 </body>
 
 </html>

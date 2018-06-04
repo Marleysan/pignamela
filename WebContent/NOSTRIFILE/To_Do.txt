@@ -15,13 +15,15 @@ Security:
 
 Features:
 
-//1 Controlli quando si prova ad andare da index a profile senza essere loggati
+//1 Controlli quando si prova ad andare da index a profile senza essere loggati //Fatto da Matt?
 
-//2 controllare i title delle pagine web
+//2 controllare i title delle pagine web //Fatto da Ghira?
 
 //5 mettere i "past cart" nel profile 
-//4 label shipping is possible to an address of your choosing
-//2 check if quantity updated è negativa oppure no
+//4 label shipping is possible to an address of your choosing //?
+
+//1 sistemare grafica dal punto di vista dei nomi troppo lunghi
+//1 risolvere i TODO in giro per il programma
 
 
 //-------------------------------------------------

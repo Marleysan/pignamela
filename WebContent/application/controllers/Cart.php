@@ -112,8 +112,11 @@ class Cart extends CI_Controller {
     //TODO che succede se un utente si mette a giocare con questo nell'url?
     public function update_element($detail_id){
         $quantity = $this -> input -> post('quantity');
-        $cart_id = $this -> carts_model -> check_carts();
-        $this->carts_model->update_cart_element($cart_id, $quantity, $detail_id);
+        
+        if($quantity > 0) {
+            $cart_id = $this -> carts_model -> check_carts();
+            $this->carts_model->update_cart_element($cart_id, $quantity, $detail_id);
+        }
         
         redirect('cart/open_cart');
     }
