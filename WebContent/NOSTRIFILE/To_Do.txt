@@ -15,15 +15,17 @@ Security:
 
 Features:
 
+//1 sistemare grafica dal punto di vista dei nomi troppo lunghi
+//2 controllare i title delle pagine web //Fatto da Ghira?
+//3 add a <br> at the end of files where needed
+//5 migliorare visualizzazione profile (carts) e old carts (cart vecchio specifico)
+//4 label shipping is possible to an address of your choosing //?
+//3 perche esiste il metodo modifyPassword all'interno di profile e non di modifyPassword?
+
 //1 Controlli quando si prova ad andare da index a profile senza essere loggati //Fatto da Matt?
 
-//2 controllare i title delle pagine web //Fatto da Ghira?
-
-//5 mettere i "past cart" nel profile 
-//4 label shipping is possible to an address of your choosing //?
-
-//1 sistemare grafica dal punto di vista dei nomi troppo lunghi
-//1 risolvere i TODO in giro per il programma
+//1 risolvere i TODO in giro per il programma (e guardare se altri commenti sono dei TODO)
+//1 test generale dell applicazione da parte di tutti e tre
 
 
 //-------------------------------------------------

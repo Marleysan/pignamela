@@ -9,6 +9,7 @@ class Profile extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('profile_model');
+        $this->load->model('carts_model');
     }
     
 	public function index(){
@@ -24,7 +25,16 @@ class Profile extends CI_Controller {
     
     public function open_profile(){
         if (isset($_SESSION['user_id'])){
-            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']); //TODO retrivarla direttamente da metodo
+            
+            $result['carts'] = $this->carts_model->get_old_carts();
+            $items = array();
+            foreach($result['carts'] as $cart) {
+                $cart['total'] = $this->carts_model->get_total_by_cart_id($cart['cart_id']);
+                $items[] = $cart;
+            }
+            
+            $data['carts'] = $items;            
             $this->load->view('profile', $data);
         } else {
             //if the user still needs to perform login
@@ -35,7 +45,6 @@ class Profile extends CI_Controller {
     }
     
     public function modify_password () {
-        
         if (isset($_SESSION['user_id'])){
             $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
             $this->load->view('modifyPassword', $data);
@@ -44,9 +53,15 @@ class Profile extends CI_Controller {
             $info["error"] = "You need to be logged in to access this page!";
             $this->load->view('login', $info);
         }
-        
-        
-        
     }
     
+    
+    public function view_old_cart($id_cart) {
+        //TODOs
+        //check if this cart belongs to the current customer
+        //check if session id is set
+        //other checks (if cart exists)
+        $data['elements'] = $this->carts_model->get_cart_elements_by_cart_id($id_cart);
+        $this->load->view('old_cart', $data);
+    }
 }

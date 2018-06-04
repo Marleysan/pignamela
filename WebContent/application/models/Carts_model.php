@@ -92,6 +92,24 @@ class Carts_model extends CI_Model {
         return $data;
     }
     
+    public function get_cart_elements_by_cart_id($cart_id) {
+    
+        $this->db->select('*');
+        $this->db->from('cart_element');
+        $this->db->join('product_detail', 'cart_element.element_detail_id = product_detail.detail_id');
+        $this->db->join('product', 'product.product_id = product_detail.detail_product_id');
+        $this -> db -> where('element_cart_id', $cart_id);
+        $query = $this->db->get();
+        
+        $data = array();
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $data = $query->result_array();
+            
+        }
+        
+        return $data;
+    }
+    
     public function update_cart_element($cart_id, $quantity, $detail_id) {
         
         $this->db->set('element_quantity', $quantity);
@@ -149,8 +167,39 @@ class Carts_model extends CI_Model {
     
     public function get_address_by_id($id){
         $query = $this -> db -> get_where('address', "address_id = '". $id ."'");
-        
         return $query -> row_array();
+    }
+    
+    public function get_old_carts() {
+        $this->db->select('*');
+        $this->db->from('cart');
+        $this -> db -> where('cart_customer_id', $_SESSION['user_id']);
+        $this->db->join('address', 'cart.cart_address_id = address.address_id');
+        $query = $this->db->get();
+        
+        $data = array();
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $data = $query->result_array();
+        }
+        
+        return $data;
+    }
+    
+    public function get_total_by_cart_id($cart_id) {
+        $this->db->select('SUM(element_quantity*product_price) AS "total"');
+        $this->db->from('cart_element');
+        $this->db->join('product_detail', 'cart_element.element_detail_id = product_detail.detail_id');
+        $this->db->join('product', 'product.product_id = product_detail.detail_product_id');
+        $this -> db -> where('element_cart_id', $cart_id);
+        $query = $this->db->get();
+        
+        $total = '0';
+        if ($query !== FALSE && $query->num_rows() > 0) {
+            $result = $query->row_array();
+            $total = $result['total'];
+        }
+        
+        return $total;
     }
     
 }

@@ -69,7 +69,29 @@
   <div class="row">
     <h6 style="text-align: center;">PAST ORDERS</h6>
   </div>
+  
+  
+    
+   <?php foreach ($carts as $cart): ?>
+  
+    <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
+        <div class="panel-body" style="height: 110px;">
 
+        <label style="margin: 30px;">Date and time of order: <?php echo $cart['cart_date']; ?></label>
+        <label style="margin: 30px;">Total: € <?php echo $cart['total']; ?></label>
+
+         <a href="http://localhost/profile/view_old_cart/<?php echo $cart['cart_id']?>">
+             <button class="btn btn-primary" style="float: right; margin: 25px;">View</button>
+         </a>
+
+       </div>
+   </div>
+  
+  <?php endforeach; ?>
+ 
+    
+    
+    
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
