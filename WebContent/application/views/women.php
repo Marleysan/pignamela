@@ -98,7 +98,7 @@
            <img src="http://localhost/assets/img/products/<?php echo $product_item['product_id']; ?>.png" style="width: 100%;" alt=""><br>
            
             <label><?php echo $product_item['product_name']; ?></label>
-            <label style="float: right;"><?php echo $product_item['product_price']; ?></label>
+            <label style="float: right;">€ <?php echo $product_item['product_price']; ?></label>
             
         </div>
     </a>
