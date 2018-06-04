@@ -117,4 +117,25 @@ class Browse extends CI_Controller {
         $this -> load -> view('women', $data);
     }
     
+    public function sunglasses_men(){
+        $season = FALSE;
+        $priceMin = FALSE;
+        $priceMax = FALSE;
+        $type = 'Eyewear';
+        $data['products'] = $this->products_model->get_products_men_filtered($season, $priceMin, $priceMax, $type); 
+        $data['allproducts'] = $this -> products_model -> get_men_types();
+        $this -> load -> view('men', $data);
+    }
+    
+    public function shirt_women(){
+        $season = FALSE;
+        $priceMin = FALSE;
+        $priceMax = FALSE;
+        $type = 'Shirt';
+        $data['products'] = $this->products_model->get_products_women_filtered($season, $priceMin, $priceMax, $type); 
+        $data['allproducts'] = $this -> products_model -> get_women_types();
+        $this -> load -> view('women', $data);
+    }
+    
+    
 }

@@ -56,13 +56,13 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
 
-      <a href="men.php">
+      <a href="http://localhost/browse/sunglasses_men">
         <button id="eyewear_button" style="background-image: url('http://localhost/assets/img/Eyewear.png'); width: 100%; height: 600px;"></button>
       </a>
     </div>
     
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-      <a href="women.php">
+      <a href="http://localhost/browse/shirt_women">
         <button id="promotion_button" style="background-image: url('http://localhost/assets/img/Promotions.png'); width: 100%; height: 600px;"></button>
       </a>
     </div>
