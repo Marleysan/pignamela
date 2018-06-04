@@ -22,7 +22,6 @@ class Login extends CI_Controller {
             $form_data['error'] = "Wrong email or password";
             $this->load->view('login', $form_data);
         } else {
-            //TODO settare session
             $this->session->user_id = $data["customer_id"];
             $this->load->view('index');
         }

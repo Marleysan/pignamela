@@ -43,14 +43,14 @@
   </div>
 </nav>
     
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
-        <img src="http://localhost/assets/img/Women.png" style="width: 100%;" alt="men_cover">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center" style="margin-bottom: 10px;">
+        <img src="http://localhost/assets/img/Women.png" style="width: 100%;" alt="women_cover">
     </div>
 
-    <div class="row" style="margin-top: 425px; margin-left: auto; margin-right: auto;">
+    <div class="row" style="margin-left: auto; margin-right: auto; margin-bottom: 10px;">
         <form action="http://localhost/browse/filterwomen"  method="POST">
           
-         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+         <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
           
             <select class="form-control" name="type" style="width: 100%; height: 30px;">
                <!-- TODO mettere un metodo che non sdoppia i product type se ci sono più products dello stesso type -->
@@ -64,7 +64,7 @@
         
         
         
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <select class="form-control" name="season" style="width: 100%; height: 30px;">
                 <option selected>-- Season --</option>
                 <option>Spring/Summer</option>
@@ -72,7 +72,7 @@
             </select>
         </div>
         
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <select class="form-control" name="price" style="width: 100%; height: 30px;">
                 <option selected>-- Prize --</option>
                 <!-- se cambi questi valori poi non va nulla -->
@@ -83,18 +83,18 @@
             </select>
         </div>
         
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <button type="submit" class="btn btn-primary" style="width: 100%;">Filter</button>
         </div>
         
     </form>
 </div>
 
-<div class="row">
+<div class="row" style="margin-left: 6%; margin-right: auto;">
     
     <?php foreach ($products as $product_item): ?>
        <a href = "http://localhost/browse/visualize/<?php echo $product_item['product_id']; ?>">
-        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="margin: 10px;">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="margin: 10px;">
            <img src="http://localhost/assets/img/products/<?php echo $product_item['product_id']; ?>.png" style="width: 100%;" alt=""><br>
            
             <label><?php echo $product_item['product_name']; ?></label>

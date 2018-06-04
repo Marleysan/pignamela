@@ -44,7 +44,6 @@ class Admin extends CI_Controller {
             $form_data['error'] = "Wrong username or password";
             $this->load->view('admin', $form_data);
         } else {
-            //TODO settare session
             $this->session->user_id = $data["admin_id"];
             redirect('admin/adminPanel');
             

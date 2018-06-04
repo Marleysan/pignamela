@@ -51,7 +51,7 @@
   
   <form action="http://localhost/cart/proceed_order" method="post">
   
-  <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
+  <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
     <div class="panel-body">
      
      <div class="row" style="margin: auto;">
@@ -99,14 +99,14 @@
  <?php foreach ($elements as $element): ?>
   
   <!-- qui dentro TODO fare i big lavorini -->
-  <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
+  <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
     <div class="panel-body" style="height: 110px;">
      
      
      <img src="http://localhost/assets/img/products/<?php echo $element['product_id']; ?>.png" style="height: 80px;">
      <label style="margin: 30px;"><?php echo $element['product_name']; ?></label>
-     <label style="margin: 30px;"><?php echo $element['detail_size']; ?></label>
-     <label style="margin: 30px;"><?php echo $element['product_price']; ?></label>
+     <label style="margin: 30px;">Size: <?php echo $element['detail_size']; ?></label>
+     <label style="margin: 30px;">€ <?php echo $element['product_price']; ?></label>
      
      <label style="margin: 30px;"><b>Quantity: </b><?php echo $element['element_quantity']; ?></label>
 
@@ -129,7 +129,7 @@
     endforeach; ?>
   
 
-<div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
+<div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
   <div class="panel-body">
    
    
@@ -146,7 +146,7 @@
 </div>
 
 <!-- aggiungere un popup con il successo dell'ordine e poi va a index.php -->
-<button type="submit" class="btn btn-primary" style="float: right;    margin-right: 250px;">Confirm</button>
+<button type="submit" class="btn btn-primary" style="float: right;    margin-right: 145px;">Confirm</button>
 </form>
 
 <a href="http://localhost/cart/open_cart"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 25px;">Abort</button></a>

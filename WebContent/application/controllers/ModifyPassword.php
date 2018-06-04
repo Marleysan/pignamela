@@ -19,10 +19,6 @@ class ModifyPassword extends CI_Controller {
     public function update_password(){
         if (isset($_SESSION['user_id'])){
         $form_data = $this->input->post();
-        /*echo "oldpassword: " . $form_data['oldpassword'] . "</br>";
-        echo "password: " . $form_data['password'] . "</br>";
-        echo "cpassword: " . $form_data['cpassword'];
-        */
         $form_data['password'] = password_hash($form_data['password'], PASSWORD_BCRYPT);
         $result = $this->customers_model-> change_password($form_data);
         
@@ -30,8 +26,6 @@ class ModifyPassword extends CI_Controller {
         //changed se ha cambiato la password
         //not_changed se -la password è uguale a quella già inserita
         
-        
-        //fare controlli se l'ha cambiato o no
         if($result=="wrong_password"){
             $data['error'] = "Prior password is wrong!";
             $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
@@ -48,21 +42,17 @@ class ModifyPassword extends CI_Controller {
                 $this->load->view('modifyPassword', $data);
             } else {
                 
-                //chiedere a silvia se si può utilizzare open_profile() di Profile.php
                 echo '<script language="javascript">';
-                echo 'alert("password successfully changed!")';
+                echo 'alert("Password successfully changed!")';
                 echo '</script>';
-                
                 //redirect('profile/open_profile');
-                
-                
                 $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
                 $this->load->view('profile', $data);
             }
         }
         } 
     }else {
-        $info["error"] = "you need to do to the login first";
+        $info["error"] = "You need to be logged in to access this content!";
             $this->load->view('login', $info);
     }
     }

@@ -51,24 +51,22 @@
   <?php foreach ($elements as $element): ?>
   
   <!-- qui dentro TODO fare i big lavorini -->
-  <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
+  <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
     <div class="panel-body" style="height: 110px;">
-     
-     <form action="http://localhost/cart/update_element/<?php echo $element['element_detail_id']?>" method="POST">
-     <img src="http://localhost/assets/img/products/<?php echo $element['product_id']; ?>.png" style="height: 80px;">
-     <label style="margin: 30px;"><?php echo $element['product_name']; ?></label>
-     <label style="margin: 30px;"><?php echo $element['detail_size']; ?></label>
-     <label style="margin: 30px;"><?php echo $element['product_price']; ?></label>
-     
-     
-     <input type="number" name="quantity" value="<?php echo $element['element_quantity']?>" style="float: right; width: 50px; margin: 30px;">
-     <button type="submit" class="btn btn-primary" style="float: right; margin: 25px;">Update Quantity</button>
-     </form> 
      
      <a href="http://localhost/cart/remove_element/<?php echo $element['element_detail_id']?>">
          <button class="btn btn-primary" style="float: right; margin: 25px;">Remove</button>
      </a>
      
+     <form action="http://localhost/cart/update_element/<?php echo $element['element_detail_id']?>" method="POST">
+     <img src="http://localhost/assets/img/products/<?php echo $element['product_id']; ?>.png" style="height: 80px;">
+     <label style="margin: 30px;"><?php echo $element['product_name']; ?></label>
+     <label style="margin: 30px;">Size: <?php echo $element['detail_size']; ?></label>
+     <label style="margin: 30px;">€ <?php echo $element['product_price']; ?></label>
+     
+     <button type="submit" class="btn btn-primary" style="float: right; margin: 25px;">Update Quantity</button>
+     <input type="number" name="quantity" value="<?php echo $element['element_quantity']?>" style="float: right; width: 50px; margin: 30px;">
+     </form> 
         
    </div>
  </div>
@@ -77,15 +75,8 @@
     $sum += $element['product_price'] * $element['element_quantity'];
     
     endforeach; ?>
-  
-  
-  
  
- 
- 
- 
- 
- <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 70%; margin: 10px auto;">
+ <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
   <div class="panel-body">
    
    
@@ -101,8 +92,8 @@
   </div>
 </div>
 
-<a href="http://localhost/home"><label style="margin-left: 250px;">Continue shopping</label></a> <!-- TODO implementare -->
-<a href="http://localhost/cart/open_confirmation"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 250px;">proceeed</button></a>
+<a href="http://localhost/home"><label style="margin-left: 145px;">Continue shopping</label></a> <!-- TODO implementare -->
+<a href="http://localhost/cart/open_confirmation"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 145px;">proceeed</button></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
