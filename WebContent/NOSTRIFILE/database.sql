@@ -135,7 +135,7 @@ CREATE TABLE `product` (
   `product_name` varchar(45) NOT NULL,
   `product_description` varchar(160) NOT NULL,
   `product_gender` enum('man','woman','unisex') NOT NULL,
-  `product_price` float NOT NULL,
+  `product_price` float(5,2) NOT NULL,
   `product_type` enum('T-Shirt','Pants','Skirt','Shirt','Eyewear') NOT NULL,
   `product_season` enum('SS','FW','ND') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

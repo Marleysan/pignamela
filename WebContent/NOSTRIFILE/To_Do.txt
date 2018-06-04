@@ -18,7 +18,6 @@ Features:
 //1 Controlli quando si prova ad andare da index a profile senza essere loggati
 
 //2 controllare i title delle pagine web
-//2 mettere 00 nel database (prezzi product)
 
 //5 mettere i "past cart" nel profile 
 //4 label shipping is possible to an address of your choosing
