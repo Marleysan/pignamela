@@ -2,7 +2,7 @@ PRIORITY 1/2/3/4....
 
 Database:
 
-//1 Aggiungere password al database
+//1 Aggiungere password al database (fare alla fine dello sviluppo, e non fare un commit, perche se simon e thomas hanno trovato la nostra repository sul git poi ci fanno saltare il database in 0.2)
 //1 togliere le password stupide dal database
 //2 Cambiare id da auto increment in token where needed
 
@@ -26,6 +26,10 @@ Features:
 
 //1 risolvere i TODO in giro per il programma (e guardare se altri commenti sono dei TODO)
 //1 test generale dell applicazione da parte di tutti e tre
+
+//rileggere documentazione e vedere se abbiamo tutto
+//mettere un testo che dice "gli ordini che farai che non sono disponibili arriveranno in ritardo" (solo se ci sono quantity>availability)
+//
 
 
 //-------------------------------------------------

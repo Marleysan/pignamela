@@ -108,7 +108,7 @@
        <?php foreach ($details as $detail_item): ?>
         quantities['<?php echo $detail_item['detail_size'] ?>'] = <?php echo $detail_item['detail_quantity'] ?>           
         <?php  endforeach;?>
-        
+            
         function setQuantity(selectObject) {
             document.getElementById("quantity").innerHTML = "N° of available items: " + quantities[selectObject.value];
         }
