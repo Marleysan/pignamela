@@ -15,10 +15,11 @@ Security:
 
 Features:
 
-//1 sistemare grafica dal punto di vista dei nomi troppo lunghi
-//2 controllare i title delle pagine web //Fatto da Ghira?
+//2 cambiare immagine donna (eliminare scritta)
 //3 add a <br> at the end of files where needed
-//5 migliorare visualizzazione profile (carts) e old carts (cart vecchio specifico)
+
+//5 date e total a due cifre decimali (e magari address)
+
 //4 label shipping is possible to an address of your choosing //?
 //3 perche esiste il metodo modifyPassword all'interno di profile e non di modifyPassword?
 
