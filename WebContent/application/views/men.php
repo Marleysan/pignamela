@@ -101,11 +101,15 @@
         </div>
     </a>
     <?php endforeach; ?>
-    <?php if (!$products) {
-        echo "No products found"; //TODO
-    } ?>
-    
     </div>
+
+<?php if (!$products) { ?>
+       <div class="row" style="margin-top: 25px; text-align: center;">
+           
+           <label><b>No products found.</b></label>
+       </div>
+        
+    <?php } ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

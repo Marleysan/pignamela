@@ -20,7 +20,6 @@ Features:
 
 //5 date e total a due cifre decimali (e magari address)
 
-//4 label shipping is possible to an address of your choosing //?
 //3 perche esiste il metodo modifyPassword all'interno di profile e non di modifyPassword?
 
 //1 Controlli quando si prova ad andare da index a profile senza essere loggati //Fatto da Matt?

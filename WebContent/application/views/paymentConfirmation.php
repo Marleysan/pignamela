@@ -128,7 +128,6 @@
     <label>€ <?php echo $sum?></label><br>
     <label style="margin-left: 30px;">Shipping</label>
     <label style="color: #35C94A">Free</label><br>
-    <label style="margin-left: 30px; color: #919191">Shipping is possible to an address of your chosing.</label><br>
     <label style="margin-left: 30px;">Total</label>
     <label>€ <?php echo $sum?></label><br>
     
