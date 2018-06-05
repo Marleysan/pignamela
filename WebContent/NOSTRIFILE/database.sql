@@ -5,10 +5,10 @@ CREATE DATABASE awesomefitdb;
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Creato il: Giu 04, 2018 alle 11:34
--- Versione del server: 10.1.26-MariaDB
--- Versione PHP: 7.1.9
+-- Host: 127.0.0.1
+-- Creato il: Giu 05, 2018 alle 10:24
+-- Versione del server: 10.1.29-MariaDB
+-- Versione PHP: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,7 +46,8 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `address_state`, `address_city`, `address_zip`, `address_street`, `address_civic_number`, `address_note`) VALUES
-(2, 'Italy', 'Bolzano', 39100, 'Via Torino', 14, 'ciaone ghira');
+(2, 'Italy', 'Bolzano', 39100, 'Via Torino', 14, 'ciaone ghira'),
+(3, 'cucco', 'bhhh', 77777, 'vai', 7, '');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `cart_address_id`, `cart_customer_id`, `cart_ordered`, `cart_date`) VALUES
-(12, NULL, 1, 0, '2018-06-03 08:25:44');
+(12, NULL, 1, 0, '2018-06-03 08:25:44'),
+(13, 3, 4, 1, '2018-06-04 19:12:20'),
+(14, 3, 4, 1, '2018-06-04 19:16:45'),
+(15, NULL, 4, 0, '2018-06-04 19:48:38');
 
 -- --------------------------------------------------------
 
@@ -99,7 +103,9 @@ CREATE TABLE `cart_element` (
 
 INSERT INTO `cart_element` (`element_cart_id`, `element_detail_id`, `element_quantity`) VALUES
 (12, 1, 4),
-(12, 5, 1);
+(12, 5, 1),
+(13, 56, 2),
+(14, 160, 1);
 
 -- --------------------------------------------------------
 
@@ -122,7 +128,8 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`customer_id`, `customer_firstname`, `customer_lastname`, `customer_email`, `customer_password`) VALUES
 (1, 'User', 'Lastuser', 'user@user.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
 (2, 'Alessandro', 'Mattivi', 'marleysan.thecan@gmail.com', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
-(3, 'silvia', 'silvi', 'silf@fdsa.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS');
+(3, 'silvia', 'silvi', 'silf@fdsa.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
+(4, 'C%$/&%DRFYTGHFCVHG', 'hhhh', 'j@j.it', '$2y$10$HCovrgbkIyl51wraBwben.MBr4gMTDGTJb0k9u6IFFHNkfsNiyvR6');
 
 -- --------------------------------------------------------
 
@@ -151,37 +158,37 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_description`, `pro
 (6, 'Rovic Zip 3D Tapered', 'Dune', 'man', 99.95, 'Pants', 'FW'),
 (7, 'Bronson Slim Chino', 'Mazarine Blue', 'man', 99.95, 'Pants', 'SS'),
 (8, 'Doax 3D Sweatpants', 'Gray Heather', 'man', 99.95, 'Pants', 'ND'),
-(9, 'Bronson Tapered Chino', 'GS Grey', 'man', 99.95, 'Pants', 'SS'),
+(9, 'Bronson Chino', 'GS Grey', 'man', 99.95, 'Pants', 'SS'),
 (10, 'Tapered Cargo Pants', 'Sartho Blue', 'man', 99.95, 'Pants', 'FW'),
-(11, 'Bronson Tapered Chino', 'Dune', 'man', 99.95, 'Pants', 'SS'),
-(12, 'Oversized Dutch Camo', 'Bright Rovic Green', 'man', 119.95, 'Pants', 'FW'),
-(13, 'Stripe Cropped Sweatpants', 'White Heather', 'man', 99.95, 'Pants', 'ND'),
-(14, 'Base T-Shirt', 'White', 'man', 35, 'T-Shirt', 'ND'),
+(11, 'Bronson Chino', 'Dune', 'man', 99.95, 'Pants', 'SS'),
+(12, 'Dutch Camo', 'Bright Rovic Green', 'man', 119.95, 'Pants', 'FW'),
+(13, 'Stripe Sweatpants', 'White Heather', 'man', 99.95, 'Pants', 'ND'),
+(14, 'Base T-Shirt', 'White', 'man', 35.00, 'T-Shirt', 'ND'),
 (15, 'Cadulor T-Shirt', 'Sartho Blue Heather', 'man', 29.95, 'T-Shirt', 'SS'),
-(16, 'Raw Correct Core Polo', 'Sartho Blue', 'man', 49.95, 'T-Shirt', 'SS'),
-(17, 'Base V-Neck T-Shirt', 'White', 'man', 35, 'T-Shirt', 'ND'),
-(18, 'Base Round Neck T-Shirt', 'Grey Heather', 'man', 35, 'T-Shirt', 'ND'),
-(19, 'Base Heather T-Shirt', 'White Solid', 'man', 35, 'T-Shirt', 'ND'),
+(16, 'Raw Core Polo', 'Sartho Blue', 'man', 49.95, 'T-Shirt', 'SS'),
+(17, 'Base V-Neck T-Shirt', 'White', 'man', 35.00, 'T-Shirt', 'ND'),
+(18, 'Base Round T-Shirt', 'Grey Heather', 'man', 35.00, 'T-Shirt', 'ND'),
+(19, 'Base Heather T-Shirt', 'White Solid', 'man', 35.00, 'T-Shirt', 'ND'),
 (20, 'Landoh Shirt', 'Rinsed', 'man', 89.95, 'Shirt', 'FW'),
-(21, 'Combo Daixen Sunglasses', 'Black', 'unisex', 139.95, 'Eyewear', 'ND'),
-(22, 'Metal Hoym Sunglasses', '179.95', 'unisex', 179.95, 'Eyewear', 'ND'),
-(23, 'Metal Brycan Sunglasses', 'Silver Matte', 'unisex', 179.95, 'Eyewear', 'SS'),
-(24, 'Combo Daixen Sunglasses', 'Havana', 'unisex', 139.95, 'Eyewear', 'ND'),
-(25, 'Racewood A-Line Skirt', 'Rinsed', 'woman', 89.95, 'Skirt', 'FW'),
+(21, 'Combo Daixen', 'Black', 'unisex', 139.95, 'Eyewear', 'ND'),
+(22, 'Metal Hoym', '179.95', 'unisex', 179.95, 'Eyewear', 'ND'),
+(23, 'Metal Brycan', 'Silver Matte', 'unisex', 179.95, 'Eyewear', 'SS'),
+(24, 'Combo Daixen', 'Havana', 'unisex', 139.95, 'Eyewear', 'ND'),
+(25, 'Racewood Skirt', 'Rinsed', 'woman', 89.95, 'Skirt', 'FW'),
 (26, 'Voleska Knit shirt', 'Dark Black', 'woman', 109.95, 'Skirt', 'FW'),
-(27, 'Tendric high Waist Skirt', 'Khaki/Praline', 'woman', 99.95, 'Skirt', 'SS'),
-(28, 'Elwood Tone-Mix A-Line Skirt', 'Combat', 'woman', 69.95, 'Skirt', 'SS'),
-(29, 'Tendric High Pleated Skirt', 'Light Hunter', 'woman', 99.95, 'Skirt', 'SS'),
+(27, 'Tendric Skirt', 'Khaki/Praline', 'woman', 99.95, 'Skirt', 'SS'),
+(28, 'Elwood Skirt', 'Combat', 'woman', 69.95, 'Skirt', 'SS'),
+(29, 'Tendric Pleated Skirt', 'Light Hunter', 'woman', 99.95, 'Skirt', 'SS'),
 (30, 'Arc Wrap Skirt', 'Medium Aged Painted', 'woman', 89.95, 'Skirt', 'FW'),
-(31, 'Tendric High Waist Skirt', 'Light Liquid Pink', 'woman', 99.95, 'Skirt', 'SS'),
-(32, 'Rovic Mid Waist Skinny Cargo Pants', 'Forest Night', 'woman', 99.95, 'Pants', 'FW'),
-(33, 'Bronson Low Waist Boyfriend Chino', 'Raw Pressed', 'woman', 99.95, 'Pants', 'FW'),
-(34, 'Bronson Mid Waist Skinny Chino', 'Mazarine Blue', 'woman', 99.95, 'Pants', 'FW'),
-(35, 'Tendric 3D Mid Boyfriend Pants', 'Milk', 'woman', 119.95, 'Pants', 'SS'),
-(36, 'Raw Correct Slim Sleeve Polo', 'Fresh cote', 'woman', 49.95, 'T-Shirt', 'SS'),
-(37, 'Raw Correct Slim Sleeve Polo', 'Sartho Blue', 'woman', 49.95, 'T-Shirt', 'SS'),
-(38, 'Raw Correct Slim Sleeve Polo', 'White', 'woman', 49.95, 'T-Shirt', 'SS'),
-(39, 'Core Sleeveless Singlet', 'Shadow', 'woman', 89.95, 'Shirt', 'SS'),
+(31, 'High Waist Skirt', 'Light Liquid Pink', 'woman', 99.95, 'Skirt', 'SS'),
+(32, 'Rovic Cargo Pants', 'Forest Night', 'woman', 99.95, 'Pants', 'FW'),
+(33, 'Bronson Chino', 'Raw Pressed', 'woman', 99.95, 'Pants', 'FW'),
+(34, 'Bronson Skinny Chino', 'Mazarine Blue', 'woman', 99.95, 'Pants', 'FW'),
+(35, 'Tendric Pants', 'Milk', 'woman', 119.95, 'Pants', 'SS'),
+(36, 'Raw Sleeve Polo', 'Fresh cote', 'woman', 49.95, 'T-Shirt', 'SS'),
+(37, 'Raw Sleeve Polo', 'Sartho Blue', 'woman', 49.95, 'T-Shirt', 'SS'),
+(38, 'Raw Sleeve Polo', 'White', 'woman', 49.95, 'T-Shirt', 'SS'),
+(39, 'Core Singlet', 'Shadow', 'woman', 89.95, 'Shirt', 'SS'),
 (40, 'Lynn Slim Shirt', 'Medium Aged', 'woman', 119.95, 'Shirt', 'FW'),
 (41, 'Core 3D Shell Shirt', 'White', 'woman', 79.95, 'Shirt', 'ND'),
 (42, 'Core Polo', 'White', 'woman', 79.95, 'Shirt', 'SS');
@@ -259,7 +266,7 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (53, 38, 'S', 2),
 (54, 38, 'XS', 1),
 (55, 38, 'XL', 1),
-(56, 39, 'M', 3),
+(56, 39, 'M', -1),
 (57, 39, 'L', 2),
 (58, 39, 'S', 2),
 (59, 39, 'XS', 1),
@@ -363,12 +370,10 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (157, 35, '42', 1),
 (158, 35, '44', 3),
 (159, 35, '46', 2),
-(160, 21, '49-21', 1),
+(160, 21, '49-21', 0),
 (161, 22, '51-22', 1),
 (162, 23, '51-22', 3),
 (163, 24, '51-21', 2);
-
-
 
 --
 -- Indici per le tabelle scaricate
@@ -430,7 +435,7 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT per la tabella `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT per la tabella `admin`
@@ -442,13 +447,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT per la tabella `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `product`
@@ -460,7 +465,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT per la tabella `product_detail`
 --
 ALTER TABLE `product_detail`
-  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `detail_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
 
 --
 -- Limiti per le tabelle scaricate
