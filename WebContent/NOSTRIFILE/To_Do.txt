@@ -4,30 +4,9 @@ Database:
 
 //1 Aggiungere password al database (fare alla fine dello sviluppo, e non fare un commit, perche se simon e thomas hanno trovato la nostra repository sul git poi ci fanno saltare il database in 0.2)
 //1 togliere le password stupide dal database
-//2 Cambiare id da auto increment in token where needed
 
 Security:
-
 //1 implementare https protocol e usare certificates
-//3 escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
-//3 secret code matt (?)
-
-
-
-Features:
-//2 cambiare immagine donna (eliminare scritta)
-//3 add a <br> at the end of files where needed
-
-
-        //TUTTI TODO:
-//1 test generale dell applicazione da parte di tutti e tre
-//1 Controlli quando si prova ad andare da index a profile senza essere loggati //Fatto da Matt?
-//1 controllare parte admin
-//1 rileggere documentazione e vedere se abbiamo tutto
-
-//Silvia: riguardare profile, carts_model e products_model per ultimi TODO
-
-
 
 //-------------------------------------------------
 

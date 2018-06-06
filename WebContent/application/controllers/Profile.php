@@ -12,8 +12,14 @@ class Profile extends CI_Controller {
         $this->load->model('carts_model');
     }
     
-	public function index(){
-		$this->load->view('profile');
+	public function index() {
+        if (isset($_SESSION['user_id'])){
+            $this->load->view('profile');
+        } else {
+            //if the user still needs to perform login
+            $info["error"] = "You need to be logged in to access profile page!";
+            $this->load->view('login', $info);
+        }
 	}  
     
     public function logout() {
@@ -57,11 +63,24 @@ class Profile extends CI_Controller {
     
     
     public function view_old_cart($id_cart) {
-        //TODOs
-        //check if this cart belongs to the current customer
-        //check if session id is set
-        //other checks (if cart exists)
-        $data['elements'] = $this->carts_model->get_cart_elements_by_cart_id($id_cart);
-        $this->load->view('old_cart', $data);
+        if (isset($_SESSION['user_id'])){
+            $cart = $this->carts_model->get_cart_by_id($id_cart);
+            if (isset($cart['cart_id'])) {
+                if ($cart['cart_customer_id'] != $_SESSION['user_id']) {
+                    $info['error'] = "You can not view this cart ".$cart['cart_customer_id'];
+                    $this->load->view('index', $info);
+                }
+                else {
+                    $data['elements'] = $this->carts_model->get_cart_elements_by_cart_id($id_cart);
+                    $this->load->view('old_cart', $data);
+                }
+            } else {
+                $info["error"] = "Could not find the cart";
+                $this->load->view('login', $info);
+            } 
+        } else {
+            $info["error"] = "You need to be logged in to access this page!";
+            $this->load->view('login', $info);
+        }
     }
 }

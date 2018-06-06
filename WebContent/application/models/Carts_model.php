@@ -110,6 +110,11 @@ class Carts_model extends CI_Model {
         return $data;
     }
     
+    public function get_cart_by_id($cart_id) {
+        $query = $this -> db -> get_where('cart', "cart_id = '" . $cart_id . "'");      
+        return $query -> row_array();
+    }
+    
     public function update_cart_element($cart_id, $quantity, $detail_id) {
         $this->db->set('element_quantity', $quantity);
         $this->db->where('element_cart_id', $cart_id);
@@ -117,14 +122,14 @@ class Carts_model extends CI_Model {
         $this->db->update('cart_element');
         $this->db->trans_complete();
         return $this->db->trans_status();
-    } //CHANGED
+    } 
     
     public function remove_cart_element($detail_id, $cart_id){
         $this->db->where('element_detail_id', $detail_id);
         $this->db->where('element_cart_id', $cart_id);
         $this->db->delete('cart_element');
         return ($this->db->affected_rows()>0);
-    } //CHANGED
+    } 
     
     public function save_address($data){
         $address = array(

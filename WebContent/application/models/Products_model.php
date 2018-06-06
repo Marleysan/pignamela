@@ -128,7 +128,7 @@ class Products_model extends CI_Model {
         $this -> db -> set('detail_quantity', $quantity);
         $this -> db -> where('detail_id', $detail_id);
         $this -> db -> update('product_detail');
-         return ; //TODO handle error
+         return ;
     }
     
     

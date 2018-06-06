@@ -70,15 +70,12 @@
  
  <div class="panel panel-default" class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width: 80%; margin: 10px auto;">
   <div class="panel-body">
-   
-   
     <label style="margin: 30px;">Subtotal</label>
     <label>€ <?php echo $sum?></label><br>
     <label style="margin-left: 30px;">Shipping</label>
     <label style="color: #35C94A">Free</label><br>
     <label style="margin-left: 30px;">Total</label>
-    <label>€ <?php echo $sum?></label><br>
-    
+    <label>€ <?php echo $sum?></label><br><br>
   </div>
 </div>
 

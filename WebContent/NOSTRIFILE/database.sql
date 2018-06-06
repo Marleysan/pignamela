@@ -6,7 +6,7 @@ CREATE DATABASE awesomefitdb;
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Giu 05, 2018 alle 10:24
+-- Creato il: Giu 06, 2018 alle 21:45
 -- Versione del server: 10.1.29-MariaDB
 -- Versione PHP: 7.2.0
 
@@ -47,7 +47,8 @@ CREATE TABLE `address` (
 
 INSERT INTO `address` (`address_id`, `address_state`, `address_city`, `address_zip`, `address_street`, `address_civic_number`, `address_note`) VALUES
 (2, 'Italy', 'Bolzano', 39100, 'Via Torino', 14, 'ciaone ghira'),
-(3, 'cucco', 'bhhh', 77777, 'vai', 7, '');
+(3, 'cucco', 'bhhh', 77777, 'vai', 7, ''),
+(4, 'Bolzano', 'Bolzano', 39100, 'via tizio', 2, '');
 
 -- --------------------------------------------------------
 
@@ -58,7 +59,7 @@ INSERT INTO `address` (`address_id`, `address_state`, `address_city`, `address_z
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `admin_username` varchar(25) NOT NULL,
-  `admin_password` varchar(32) NOT NULL
+  `admin_password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -83,7 +84,11 @@ INSERT INTO `cart` (`cart_id`, `cart_address_id`, `cart_customer_id`, `cart_orde
 (12, NULL, 1, 0, '2018-06-03 08:25:44'),
 (13, 3, 4, 1, '2018-06-04 19:12:20'),
 (14, 3, 4, 1, '2018-06-04 19:16:45'),
-(15, NULL, 4, 0, '2018-06-04 19:48:38');
+(15, NULL, 4, 0, '2018-06-04 19:48:38'),
+(16, 4, 5, 1, '2018-06-06 16:22:02'),
+(17, 4, 5, 1, '2018-06-06 16:22:33'),
+(18, 4, 5, 1, '2018-06-06 18:55:55'),
+(19, NULL, 5, 0, '2018-06-06 18:57:05');
 
 -- --------------------------------------------------------
 
@@ -105,7 +110,10 @@ INSERT INTO `cart_element` (`element_cart_id`, `element_detail_id`, `element_qua
 (12, 1, 4),
 (12, 5, 1),
 (13, 56, 2),
-(14, 160, 1);
+(14, 160, 1),
+(16, 161, 1),
+(17, 163, 3),
+(18, 162, 7);
 
 -- --------------------------------------------------------
 
@@ -129,7 +137,8 @@ INSERT INTO `customer` (`customer_id`, `customer_firstname`, `customer_lastname`
 (1, 'User', 'Lastuser', 'user@user.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
 (2, 'Alessandro', 'Mattivi', 'marleysan.thecan@gmail.com', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
 (3, 'silvia', 'silvi', 'silf@fdsa.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
-(4, 'C%$/&%DRFYTGHFCVHG', 'hhhh', 'j@j.it', '$2y$10$HCovrgbkIyl51wraBwben.MBr4gMTDGTJb0k9u6IFFHNkfsNiyvR6');
+(4, 'C%$/&%DRFYTGHFCVHG', 'hhhh', 'j@j.it', '$2y$10$HCovrgbkIyl51wraBwben.MBr4gMTDGTJb0k9u6IFFHNkfsNiyvR6'),
+(5, 'Silvia', 'Fraca', 'silvia@datatellers.in', '$2y$10$bwbZC0Yiw6Z/Q4Z/CVXzrud7ZOoR5xPIzUCbaEfW.sJA.hXzk0Aqa');
 
 -- --------------------------------------------------------
 
@@ -266,7 +275,7 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (53, 38, 'S', 2),
 (54, 38, 'XS', 1),
 (55, 38, 'XL', 1),
-(56, 39, 'M', -1),
+(56, 39, 'M', 4),
 (57, 39, 'L', 2),
 (58, 39, 'S', 2),
 (59, 39, 'XS', 1),
@@ -370,10 +379,10 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (157, 35, '42', 1),
 (158, 35, '44', 3),
 (159, 35, '46', 2),
-(160, 21, '49-21', 0),
-(161, 22, '51-22', 1),
-(162, 23, '51-22', 3),
-(163, 24, '51-21', 2);
+(160, 21, '49-21', 5),
+(161, 22, '51-22', 2),
+(162, 23, '51-22', 0),
+(163, 24, '51-21', 4);
 
 --
 -- Indici per le tabelle scaricate
@@ -435,7 +444,7 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT per la tabella `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `admin`
@@ -447,13 +456,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT per la tabella `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT per la tabella `product`
