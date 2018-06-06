@@ -109,7 +109,6 @@ class Cart extends CI_Controller {
     }
     
     
-    //TODO che succede se un utente si mette a giocare con questo nell'url?
     public function update_element($detail_id){
         $quantity = $this -> input -> post('quantity');
         
@@ -121,12 +120,10 @@ class Cart extends CI_Controller {
         redirect('cart/open_cart');
     }
     
-    //TODO che succede se un utente si mette a giocare con questo nell'url?
+    
     public function remove_element($detail_id){
         $cart_id = $this -> carts_model -> check_carts();
-        
         $this -> carts_model -> remove_cart_element($detail_id, $cart_id);
-        
         redirect('cart/open_cart');
     }
     
@@ -177,7 +174,7 @@ class Cart extends CI_Controller {
             }
             
             //order successful
-            $info["error"] = "order placed";
+            $info["error"] = "Success! Order correctly placed";
             $this->load->view('index', $info);
             
             

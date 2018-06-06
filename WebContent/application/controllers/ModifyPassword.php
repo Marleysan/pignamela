@@ -28,17 +28,17 @@ class ModifyPassword extends CI_Controller {
         
         if($result=="wrong_password"){
             $data['error'] = "Prior password is wrong!";
-            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $data['profile_data'] = $this -> profile_model -> get_profile_data();
             $this->load->view('modifyPassword', $data);
         } else {
             if ($result=="not_changed") {
             $data['error'] = "Your new password is your already in use one.";
-            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $data['profile_data'] = $this -> profile_model -> get_profile_data();
             $this->load->view('modifyPassword', $data);
         } else {
             if ($result == "NULL") {
                 $data['error'] = "Problems with the database! Password not changed.";
-                $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+                $data['profile_data'] = $this -> profile_model -> get_profile_data();
                 $this->load->view('modifyPassword', $data);
             } else {
                 
@@ -46,7 +46,7 @@ class ModifyPassword extends CI_Controller {
                 echo 'alert("Password successfully changed!")';
                 echo '</script>';
                 //redirect('profile/open_profile');
-                $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+                $data['profile_data'] = $this -> profile_model -> get_profile_data();
                 $this->load->view('profile', $data);
             }
         }

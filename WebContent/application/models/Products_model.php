@@ -34,10 +34,6 @@ class Products_model extends CI_Model {
         return $data;
     }
     
-    public function get_product_detail($detail_id){
-        
-    }
-    
     
     public function get_men_types() {
         $this->db->group_by('product_type');

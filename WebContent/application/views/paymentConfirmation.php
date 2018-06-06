@@ -55,6 +55,7 @@
      <div class="row" style="margin: auto;">
        
        <?php 
+         $attention = false;
          if ($address != FALSE){
              echo "<input type=\"radio\" id=\"old\" name=\"address\" onchange = \"setRadio()\"> <b>Last used:</b> ";
              echo $address['address_street'] . ", " . $address['address_civic_number'] . ", " . $address['address_city'] . ", " . $address['address_zip'] . ", " . $address['address_state'];
@@ -106,6 +107,7 @@
      <?php
         if ($element['detail_quantity'] < $element['element_quantity']) {
             echo "<label style=\"margin: 30px; color:red;\">Attention: only ".$element['detail_quantity']." available</label>";
+            $attention = true;
         }
      ?>
      
@@ -134,11 +136,24 @@
   </div>
 </div>
 
+
+    <?php 
+    if ($attention) {
+        echo "<div class=\"panel panel-default\" class=\"col-xs-12 col-sm-12 col-md-12 col-lg-12\" style=\"width: 80%; margin: 10px auto;\">
+            <div class=\"panel-body\">
+            <h4 style=\"color: red; text-align:center;\"><b>Attention:</b><br><br>Every non-available product you order will automatically be sent as soon as possible.</h4>
+            </div>
+        </div>";
+    }
+      ?>
+
 <!-- aggiungere un popup con il successo dell'ordine e poi va a index.php -->
 <button type="submit" class="btn btn-primary" style="float: right;    margin-right: 145px;">Confirm</button>
 </form>
 
 <a href="http://localhost/cart/open_cart"><button type="submit" class="btn btn-primary" style="float: right; margin-right: 25px;">Abort</button></a>
+
+<br><br>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
