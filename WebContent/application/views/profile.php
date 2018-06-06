@@ -8,7 +8,7 @@
 	<title>Profile</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<link rel="stylesheet" href="http://localhost/assets/css/global.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/global.css">
 </head>
 <body>
 
@@ -19,24 +19,24 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>    
-    <a class="navbar-ASF" href="http://localhost/home">AweSomeFit</a>
+    <a class="navbar-ASF" href="<?php echo base_url(); ?>home">AweSomeFit</a>
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-left">
-        <li><a href="http://localhost/browse/openmen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Men</a></li>
-        <li><a href="http://localhost/browse/openwomen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Women</a></li>
+        <li><a href="<?php echo base_url(); ?>browse/openmen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Men</a></li>
+        <li><a href="<?php echo base_url(); ?>browse/openwomen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Women</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
      
      <?php if(isset($_SESSION["user_id"])) {
-        echo "<li><a href=\"http://localhost/profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><i class=\"glyphicon glyphicon-user\"></i>  <u>Profile</u></a></li>";
+        echo "<li><a href=\"".base_url()."profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><i class=\"glyphicon glyphicon-user\"></i>  <u>Profile</u></a></li>";
     }
       else {
-        echo "<li><a href=\"http://localhost/login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">login  <i class=\"glyphicon glyphicon-log-in\"></i></a></li>";
+        echo "<li><a href=\"".base_url()."login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\">login  <i class=\"glyphicon glyphicon-log-in\"></i></a></li>";
       }
     ?>
      
-      <li><a href="http://localhost/cart/open_cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+      <li><a href="<?php echo base_url(); ?>cart/open_cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
     </ul>
   </div>
 </nav>
@@ -52,12 +52,12 @@
         echo "  " . $profile_data['customer_lastname'];?></h1>
     <div class="row" >
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <form action="http://localhost/profile/logout">
+        <form action="<?php echo base_url(); ?>profile/logout">
           <button type="submit" class="btn btn-primary" style="width: 100%;">Logout</button>
         </form>
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <a href="http://localhost/profile/modify_password"><button type="submit" class="btn btn-primary" style="width: 150px;">Change Password</button></a>
+        <a href="<?php echo base_url(); ?>profile/modify_password"><button type="submit" class="btn btn-primary" style="width: 150px;">Change Password</button></a>
       </div>
     </div>
   </div>
@@ -80,7 +80,7 @@
         <label style="margin: 30px;">Date and time of order: <?php echo $cart['cart_date']; ?></label>
         <label style="margin: 30px;">Total: € <?php echo $cart['total']; ?></label>
 
-         <a href="http://localhost/profile/view_old_cart/<?php echo $cart['cart_id']?>">
+         <a href="<?php echo base_url(); ?>profile/view_old_cart/<?php echo $cart['cart_id']?>">
              <button class="btn btn-primary" style="float: right; margin: 25px;">View</button>
          </a>
 

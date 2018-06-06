@@ -8,7 +8,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="http://localhost/assets/css/global.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/global.css">
 </head>
 
 <body>
@@ -20,24 +20,24 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>   
-    <a class="navbar-ASF" href="http://localhost/home">AweSomeFit</a>
+    <a class="navbar-ASF" href="<?php echo base_url(); ?>home">AweSomeFit</a>
   </div>
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-left">
-        <li><a href="http://localhost/browse/openmen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Men</a></li>
-        <li><a href="http://localhost/browse/openwomen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Women</a></li>
+        <li><a href="<?php echo base_url(); ?>browse/openmen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Men</a></li>
+        <li><a href="<?php echo base_url(); ?>browse/openwomen" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'">Women</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
      
      <?php if(isset($_SESSION["user_id"])) {
-        echo "<li><a href=\"http://localhost/profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><i class=\"glyphicon glyphicon-user\"></i>  Profile</a></li>";
+        echo "<li><a href=\"".base_url()."profile/open_profile\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><i class=\"glyphicon glyphicon-user\"></i>  Profile</a></li>";
     }
       else {
-        echo "<li><a href=\"http://localhost/login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><u>login  <i class=\"glyphicon glyphicon-log-in\"></i></u></a></li>";
+        echo "<li><a href=\"".base_url()."login\" style=\"color: #FFFFFF;\" onmouseover=\"this.style.color='#AAAAAA'\" onmouseout=\"this.style.color='#FFFFFF'\"><u>login  <i class=\"glyphicon glyphicon-log-in\"></i></u></a></li>";
       }
     ?>
      
-      <li><a href="http://localhost/cart/open_cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+      <li><a href="<?php echo base_url(); ?>cart/open_cart" style="color: #FFFFFF;" onmouseover="this.style.color='#AAAAAA'" onmouseout="this.style.color='#FFFFFF'"><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
     </ul>
   </div>
 </nav>
@@ -53,7 +53,7 @@
     <div class="panel panel-default" style="width: 400px; margin: 0 auto; margin-top: 10%;">
       <div class="panel-body">
 
-        <form action="http://localhost/register/create_user" method="POST">
+        <form action="<?php echo base_url(); ?>register/create_user" method="POST">
 
             <h2 style="text-align: center;">Welcome to AweSomeFit
                 <small>Just one step more</small>
@@ -102,7 +102,7 @@
         </form>
         
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            <a href="http://localhost/login">
+            <a href="<?php echo base_url(); ?>login">
              <button type="submit" class="btn btn-primary" style="width: 150px;">Back to Login</button>
          </a>
      </div>

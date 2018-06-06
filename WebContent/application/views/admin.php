@@ -24,7 +24,7 @@
 
     <div class="panel panel-default" style="width: 300px; margin: 10% auto;">
       <div class="panel-body">
-        <form action="http://localhost/Admin/do_login" method="POST">
+        <form action="<?php echo base_url(); ?>Admin/do_login" method="POST">
 
             <!-- Title -->
             <div class="row" style="padding-bottom: 20px; margin: 0 auto;">
