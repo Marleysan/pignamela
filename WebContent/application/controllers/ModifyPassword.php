@@ -41,13 +41,7 @@ class ModifyPassword extends CI_Controller {
                 $data['profile_data'] = $this -> profile_model -> get_profile_data();
                 $this->load->view('modifyPassword', $data);
             } else {
-                
-                echo '<script language="javascript">';
-                echo 'alert("Password successfully changed!")';
-                echo '</script>';
-                //redirect('profile/open_profile');
-                $data['profile_data'] = $this -> profile_model -> get_profile_data();
-                $this->load->view('profile', $data);
+                redirect('profile/open_profile');
             }
         }
         } 

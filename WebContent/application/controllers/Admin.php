@@ -14,25 +14,24 @@ class Admin extends CI_Controller {
     }
     
     public function index(){
-        
         $this->load->view("admin");
     }
     
     public function logout() {
         unset(
-            $_SESSION['user_id']
+            $_SESSION['admin_id']
         );
         $this->load->view('admin');
     }
     
     public function adminPanel () {
-        if (isset($_SESSION['user_id'])) {
-            $data['admin_data'] = $this->admin_model->get_admin_data($_SESSION['user_id']);
+        if (isset($_SESSION['admin_id'])) {
+            $data['admin_data'] = $this->admin_model->get_admin_data($_SESSION['admin_id']);
             $data['products'] = $this->products_model->get_all_products_detail();
             $this->load->view('adminPanel', $data);
         }
         else {
-            $form_data['error'] = "Please log in befor entering adminPanel!";
+            $form_data['error'] = "Please log in before entering adminPanel!";
             $this->load->view('admin', $form_data);
         }
     }
@@ -44,7 +43,7 @@ class Admin extends CI_Controller {
             $form_data['error'] = "Wrong username or password";
             $this->load->view('admin', $form_data);
         } else {
-            $this->session->user_id = $data["admin_id"];
+            $this->session->admin_id = $data["admin_id"];
             redirect('admin/adminPanel');
             
         }
@@ -53,7 +52,6 @@ class Admin extends CI_Controller {
     public function change_quantity($detail_id) {
         $form_data = $this->input->post();
         $quantity = $this->input->post("quantity");
-        echo "Detail ".$detail_id." quantity ".$quantity;
         
         $result = $this->products_model->get_detail($detail_id);
         $actual_quantity = $result['detail_quantity'];
@@ -61,6 +59,8 @@ class Admin extends CI_Controller {
         $final_quantity = $actual_quantity + $quantity;
         
         $this->products_model->update_quantity($detail_id, $final_quantity);
+        
+        redirect('admin/adminPanel');
         
     }
     
