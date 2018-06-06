@@ -8,28 +8,25 @@ Database:
 
 Security:
 
-//1 implementare https protocol
-//2 usare certificates (?)
+//1 implementare https protocol e usare certificates
 //3 escaping, abbiamo visto che lo fa già in un qualche modo, ma qui ci sono i metodi dedicati -> https://www.codeigniter.com/userguide3/database/queries.html
 //3 secret code matt (?)
 
-Features:
 
+
+Features:
 //2 cambiare immagine donna (eliminare scritta)
 //3 add a <br> at the end of files where needed
 
-//5 date e total a due cifre decimali (e magari address)
 
-//3 perche esiste il metodo modifyPassword all'interno di profile e non di modifyPassword?
-
-//1 Controlli quando si prova ad andare da index a profile senza essere loggati //Fatto da Matt?
-
-//1 risolvere i TODO in giro per il programma (e guardare se altri commenti sono dei TODO)
+        //TUTTI TODO:
 //1 test generale dell applicazione da parte di tutti e tre
+//1 Controlli quando si prova ad andare da index a profile senza essere loggati //Fatto da Matt?
+//1 controllare parte admin
+//1 rileggere documentazione e vedere se abbiamo tutto
 
-//rileggere documentazione e vedere se abbiamo tutto
-//mettere un testo che dice "gli ordini che farai che non sono disponibili arriveranno in ritardo" (solo se ci sono quantity>availability)
-//
+//Silvia: riguardare profile, carts_model e products_model per ultimi TODO
+
 
 
 //-------------------------------------------------

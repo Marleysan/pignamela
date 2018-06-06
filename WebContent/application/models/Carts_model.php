@@ -111,22 +111,20 @@ class Carts_model extends CI_Model {
     }
     
     public function update_cart_element($cart_id, $quantity, $detail_id) {
-        
         $this->db->set('element_quantity', $quantity);
         $this->db->where('element_cart_id', $cart_id);
         $this->db->where('element_detail_id', $detail_id);
         $this->db->update('cart_element');
-        
-        //TODO return value
-
-    }
+        $this->db->trans_complete();
+        return $this->db->trans_status();
+    } //CHANGED
     
     public function remove_cart_element($detail_id, $cart_id){
         $this->db->where('element_detail_id', $detail_id);
         $this->db->where('element_cart_id', $cart_id);
         $this->db->delete('cart_element');
-        //TODO return
-    }
+        return ($this->db->affected_rows()>0);
+    } //CHANGED
     
     public function save_address($data){
         $address = array(
@@ -186,7 +184,7 @@ class Carts_model extends CI_Model {
     }
     
     public function get_total_by_cart_id($cart_id) {
-        $this->db->select('SUM(element_quantity*product_price) AS "total"');
+        $this->db->select('FORMAT(SUM(element_quantity*product_price),2) AS "total"');
         $this->db->from('cart_element');
         $this->db->join('product_detail', 'cart_element.element_detail_id = product_detail.detail_id');
         $this->db->join('product', 'product.product_id = product_detail.detail_product_id');

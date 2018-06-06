@@ -25,7 +25,7 @@ class Profile extends CI_Controller {
     
     public function open_profile(){
         if (isset($_SESSION['user_id'])){
-            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']); //TODO retrivarla direttamente da metodo
+            $data['profile_data'] = $this -> profile_model -> get_profile_data();
             
             $result['carts'] = $this->carts_model->get_old_carts();
             $items = array();
@@ -46,7 +46,7 @@ class Profile extends CI_Controller {
     
     public function modify_password () {
         if (isset($_SESSION['user_id'])){
-            $data['profile_data'] = $this -> profile_model -> get_profile_data($_SESSION['user_id']);
+            $data['profile_data'] = $this -> profile_model -> get_profile_data();
             $this->load->view('modifyPassword', $data);
         } else {
             //if the user still needs to perform login
