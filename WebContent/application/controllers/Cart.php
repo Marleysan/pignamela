@@ -168,7 +168,7 @@ class Cart extends CI_Controller {
                 if ($element['element_quantity'] >= $element['detail_quantity']){
                     $this -> products_model -> update_quantity($element['element_detail_id'], '0');
                 } else {
-                    $this -> products_model -> update_quantity($element['element_detail_id'], ($element['element_quantity'] - $element['detail_quantity']));
+                    $this -> products_model -> update_quantity($element['element_detail_id'], ($element['detail_quantity'] - $element['element_quantity']));
                 }
                 
             }

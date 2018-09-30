@@ -5,10 +5,10 @@ CREATE DATABASE awesomefitdb;
 -- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Giu 06, 2018 alle 21:45
--- Versione del server: 10.1.29-MariaDB
--- Versione PHP: 7.2.0
+-- Host: localhost
+-- Creato il: Giu 07, 2018 alle 10:40
+-- Versione del server: 10.1.26-MariaDB
+-- Versione PHP: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,9 +46,9 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `address_state`, `address_city`, `address_zip`, `address_street`, `address_civic_number`, `address_note`) VALUES
-(2, 'Italy', 'Bolzano', 39100, 'Via Torino', 14, 'ciaone ghira'),
-(3, 'cucco', 'bhhh', 77777, 'vai', 7, ''),
-(4, 'Bolzano', 'Bolzano', 39100, 'via tizio', 2, '');
+(5, 'Italy', 'Bolzano', 39100, 'University Square', 1, ''),
+(6, 'Italy', 'Bolzano', 39100, 'Torino Street', 10, ''),
+(7, 'Bolzano', 'Bolzano', 39040, 'Zona Artigianale 3 Montagna, Bolzano', 23, '');
 
 -- --------------------------------------------------------
 
@@ -61,6 +61,13 @@ CREATE TABLE `admin` (
   `admin_username` varchar(25) NOT NULL,
   `admin_password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_username`, `admin_password`) VALUES
+(1, 'SecurityManager', '$2y$10$GhqBqqEwxov6Ch4vDyo5HesWYllTy2XqissU1gF9RdagU8ASKobl2');
 
 -- --------------------------------------------------------
 
@@ -81,14 +88,11 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `cart_address_id`, `cart_customer_id`, `cart_ordered`, `cart_date`) VALUES
-(12, NULL, 1, 0, '2018-06-03 08:25:44'),
-(13, 3, 4, 1, '2018-06-04 19:12:20'),
-(14, 3, 4, 1, '2018-06-04 19:16:45'),
-(15, NULL, 4, 0, '2018-06-04 19:48:38'),
-(16, 4, 5, 1, '2018-06-06 16:22:02'),
-(17, 4, 5, 1, '2018-06-06 16:22:33'),
-(18, 4, 5, 1, '2018-06-06 18:55:55'),
-(19, NULL, 5, 0, '2018-06-06 18:57:05');
+(20, 5, 8, 1, '2018-06-07 07:52:04'),
+(21, 6, 8, 1, '2018-06-07 07:53:03'),
+(22, 6, 8, 1, '2018-06-07 07:55:38'),
+(23, NULL, 8, 0, '2018-06-07 07:55:53'),
+(24, 7, 9, 1, '2018-06-07 08:00:29');
 
 -- --------------------------------------------------------
 
@@ -107,13 +111,14 @@ CREATE TABLE `cart_element` (
 --
 
 INSERT INTO `cart_element` (`element_cart_id`, `element_detail_id`, `element_quantity`) VALUES
-(12, 1, 4),
-(12, 5, 1),
-(13, 56, 2),
-(14, 160, 1),
-(16, 161, 1),
-(17, 163, 3),
-(18, 162, 7);
+(20, 1, 1),
+(20, 162, 3),
+(21, 1, 2),
+(21, 71, 2),
+(21, 117, 1),
+(22, 13, 3),
+(23, 163, 2),
+(24, 44, 1);
 
 -- --------------------------------------------------------
 
@@ -134,11 +139,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `customer_firstname`, `customer_lastname`, `customer_email`, `customer_password`) VALUES
-(1, 'User', 'Lastuser', 'user@user.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
-(2, 'Alessandro', 'Mattivi', 'marleysan.thecan@gmail.com', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
-(3, 'silvia', 'silvi', 'silf@fdsa.it', '$2y$10$G8Pc7PewVHf4v2/688EDPuuINlPOHB2IN4nTsUf6DdKtEbs0SEhsS'),
-(4, 'C%$/&%DRFYTGHFCVHG', 'hhhh', 'j@j.it', '$2y$10$HCovrgbkIyl51wraBwben.MBr4gMTDGTJb0k9u6IFFHNkfsNiyvR6'),
-(5, 'Silvia', 'Fraca', 'silvia@datatellers.in', '$2y$10$bwbZC0Yiw6Z/Q4Z/CVXzrud7ZOoR5xPIzUCbaEfW.sJA.hXzk0Aqa');
+(8, 'Guy', 'AweSomeFit', 'awesomefit@info.com', '$2y$10$RAZwAboYaKsAu2UAym0Bf.FVEU.jog6rHDDsCF3Ft/OmTF.c7G/CO'),
+(9, 'Myname', 'This', 'anemailthatisnothacked@me.com', '$2y$10$C4zhumxO3.vt7S451duENezEpFeJJT.dJh3irrYChKBDUxalr8fRe');
 
 -- --------------------------------------------------------
 
@@ -228,11 +230,11 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (6, 14, 'M', 3),
 (7, 14, 'L', 2),
 (8, 14, 'S', 2),
-(9, 14, 'XS', 1),
+(9, 14, 'XS', 6),
 (10, 14, 'XL', 1),
 (11, 15, 'M', 3),
 (12, 15, 'L', 2),
-(13, 15, 'S', 2),
+(13, 15, 'S', 7),
 (14, 15, 'XS', 1),
 (15, 15, 'XL', 1),
 (16, 16, 'M', 3),
@@ -263,7 +265,7 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (41, 36, 'M', 3),
 (42, 36, 'L', 2),
 (43, 36, 'S', 2),
-(44, 36, 'XS', 1),
+(44, 36, 'XS', 0),
 (45, 36, 'XL', 1),
 (46, 37, 'M', 3),
 (47, 37, 'L', 2),
@@ -290,7 +292,7 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (68, 41, 'S', 2),
 (69, 41, 'XS', 1),
 (70, 41, 'XL', 1),
-(71, 42, 'M', 3),
+(71, 42, 'M', 1),
 (72, 42, 'L', 2),
 (73, 42, 'S', 2),
 (74, 42, 'XS', 1),
@@ -336,7 +338,7 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (114, 13, '50', 3),
 (115, 13, '52', 2),
 (116, 25, '40', 1),
-(117, 25, '42', 1),
+(117, 25, '42', 4),
 (118, 25, '44', 3),
 (119, 25, '46', 2),
 (120, 26, '40', 1),
@@ -381,7 +383,7 @@ INSERT INTO `product_detail` (`detail_id`, `detail_product_id`, `detail_size`, `
 (159, 35, '46', 2),
 (160, 21, '49-21', 5),
 (161, 22, '51-22', 2),
-(162, 23, '51-22', 0),
+(162, 23, '51-22', 5),
 (163, 24, '51-21', 4);
 
 --
@@ -444,25 +446,25 @@ ALTER TABLE `product_detail`
 -- AUTO_INCREMENT per la tabella `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT per la tabella `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT per la tabella `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT per la tabella `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT per la tabella `product`
